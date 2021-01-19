@@ -4,7 +4,7 @@ const initialState = {
   name: "" 
 };
 
-const recipeReducer = (state:Recipe = initialState, {type, action}:RecipeAction):Recipe => {
+const recipeReducer = (state:Recipe = initialState, {type, payload}:RecipeAction):Recipe => {
   switch(type) {
     case "":
       return {...state}
