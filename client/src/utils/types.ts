@@ -4,7 +4,7 @@ export interface Recipe {
 
 export interface RecipeAction {
     type: string;
-    action: string;
+    payload: string;
 };
 
 export interface Query {
@@ -13,5 +13,5 @@ export interface Query {
 
 export interface QueryAction {
     type: string;
-    action: string;
+    payload: string;
 };
