@@ -4,10 +4,10 @@ const initialState = {
   search: "",
 };
 
-const queryReducer = (state:Query = initialState,  {type,payload}:QueryAction):Query => {
+const queryReducer = (state:Query = initialState,  { type, payload }:QueryAction):Query => {
   switch(type) {
-    case "":
-      return {...state}
+    case "UPDATE_SEARCH":
+      return {...state, search: payload}
     default:
       return state;
   };
