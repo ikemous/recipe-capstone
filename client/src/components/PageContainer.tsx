@@ -1,11 +1,14 @@
 import React form "react";
+import { Container } from "reactstrap";
 
 interface Props {};
 
 const PageContainer:React.FC<Props> = ({ children }) => {
   return (
     <>
-      {children}
+      <Container fluid={true}>
+        {children}
+      </Container>
     </>
   );
 };
