@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { updateSearch } from "../utils/actions";
 
 function QueryForm() {
   const { search } = useSelector(({query}:RootStateOrAny) => query)
@@ -15,7 +16,7 @@ function QueryForm() {
           name="searchbox" 
           placholder="Search Recipe..."
           value={search}
-          onChange={() => dispatch(updateQuery)}
+          onChange={({target}:React.ChangeEvent<HTMLInputElement>) => dispatch(updateSearch(target.value))}
         />
       </FormGroup>
       <FormGroup>

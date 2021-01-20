@@ -8,7 +8,7 @@ export interface RecipeAction {
 };
 
 export interface Query {
-  query: string;  
+  search: string;  
 };
 
 export interface QueryAction {
