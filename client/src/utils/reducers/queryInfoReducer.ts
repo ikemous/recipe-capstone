@@ -1,7 +1,7 @@
 import { Query, QueryAction } from "../types";
 
 const initialState = {
-  query: "",
+  search: "",
 };
 
 const queryReducer = (state:Query = initialState,  {type,payload}:QueryAction):Query => {
