@@ -7,8 +7,12 @@ function QueryForm() {
   const { search } = useSelector(({query}:RootStateOrAny) => query)
   const dispatch = useDispatch();
 
+  const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+  }
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Label for="searchbox" />
         <Input 
@@ -20,7 +24,7 @@ function QueryForm() {
         />
       </FormGroup>
       <FormGroup>
-        <Button>Search</Button>
+        <Button type="submit">Search</Button>
       </FormGroup>
     </Form>
   );
