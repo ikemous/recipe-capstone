@@ -1,6 +1,8 @@
 import React form "react";
 
-const PageContainer = () => {
+interface Props {};
+
+const PageContainer:React.FC<Props> = () => {
   return <></>
 };
 
