@@ -15,3 +15,12 @@ export interface QueryAction {
     type: string;
     payload: string;
 };
+
+export interface RecipeList {
+    name: string;
+};
+
+export interface RecipeListAction {
+    type: string;
+    payload: any;
+};
