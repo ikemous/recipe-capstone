@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button, Row } from "reactstrap";
 import { updateSearch } from "../utils/actions";
 
 function QueryForm() {
@@ -11,12 +11,13 @@ function QueryForm() {
     event.preventDefault();
 
   }
+  
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} inline>
       <FormGroup>
         <Label for="searchbox" />
         <Input 
-          type="text" 
+          type="search" 
           name="searchbox" 
           placholder="Search Recipe..."
           value={search}
