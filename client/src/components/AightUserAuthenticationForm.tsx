@@ -1,9 +1,18 @@
 import React from "react";
-import { Form } from "reactstrap";
+import { Form, FormGroup, Button } from "reactstrap";
 
 function AightUserAuthenticationForm() {
     return (
         <Form>
+            <FormGroup>
+                
+            </FormGroup>
+            <FormGroup>
+
+            </FormGroup>
+            <FormGroup>
+                <Button></Button>
+            </FormGroup>
         </Form>
     );
 };
