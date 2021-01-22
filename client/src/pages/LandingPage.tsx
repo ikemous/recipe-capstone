@@ -1,6 +1,6 @@
 import React from "react";
-import PageContainer from "./components/PageContainer";
-import QueryForm from "./components/QueryForm";
+import PageContainer from "../components/PageContainer";
+import QueryForm from "../components/QueryForm";
 
 function LandingPage() {
   return (
