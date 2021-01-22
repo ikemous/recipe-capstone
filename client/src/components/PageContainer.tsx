@@ -1,4 +1,4 @@
-import React form "react";
+import React from "react";
 import { Container } from "reactstrap";
 import TotallyCewlNavBar from "./TotallyCewlNavBar";
 

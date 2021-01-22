@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
-import { Form, FormGroup, Input, Label, Button, Row } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { updateSearch } from "../utils/actions";
 
 function QueryForm() {
@@ -13,20 +13,26 @@ function QueryForm() {
   }
   
   return (
-    <Form onSubmit={handleSubmit} inline>
-      <FormGroup>
-        <Label for="searchbox" />
-        <Input 
-          type="search" 
-          name="searchbox" 
-          placholder="Search Recipe..."
-          value={search}
-          onChange={({target}:React.ChangeEvent<HTMLInputElement>) => dispatch(updateSearch(target.value))}
-        />
-      </FormGroup>
-      <FormGroup>
-        <Button type="submit">Search</Button>
-      </FormGroup>
+    <Form onSubmit={handleSubmit}>
+      <Row form>
+        <Col sm={4}>
+          <FormGroup>
+            <Label for="searchbox" hidden>Search</Label>
+            <Input 
+              type="search" 
+              name="searchbox" 
+              placholder="Search Recipe..."
+              value={search}
+              onChange={({target}:React.ChangeEvent<HTMLInputElement>) => dispatch(updateSearch(target.value))}
+            />
+          </FormGroup>
+        </Col>
+        <Col sm={4}>
+          <FormGroup>
+            <Button type="submit">Search</Button>
+          </FormGroup>
+        </Col>
+      </Row>
     </Form>
   );
 };
