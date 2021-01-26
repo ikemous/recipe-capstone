@@ -35,4 +35,5 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
 AightUserAuthenticationForm.defaultProps = {
     signupPage: false,
 };
+
 export default AightUserAuthenticationForm;
