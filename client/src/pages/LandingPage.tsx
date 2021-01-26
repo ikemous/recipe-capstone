@@ -6,7 +6,7 @@ import AightUserAuthenticationForm from "../components/AightUserAuthenticationFo
 function LandingPage() {
   return (
     <PageContainer>
-      <AightUserAuthenticationForm />
+      <AightUserAuthenticationForm signupPage />
        <QueryForm />
        <div>
          <h2>Search For Recipes!</h2>
