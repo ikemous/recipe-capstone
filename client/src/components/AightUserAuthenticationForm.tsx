@@ -11,21 +11,40 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
+    const [error, setError] = useState<string>("");
+    const [loading, setLoading] = useState<boolean>(false);
+
     const { signup } = useAuth();
 
     const { signupPage } = props;
 
 
-    function handleSubmit(event:React.MouseEvent<HTMLButtonElement, MouseEvent>){
+    async function handleSignup(event:React.FormEvent<HTMLFormElement>){
         event.preventDefault();
+        if(password !== confirmPassword) {
+            return setError("Passwords Dont Match");
+        }
 
-        signup(email, password)
+        try {
+            setError('');
+            setLoading(true);
+            await signup(email, password);
+        } catch {
+            setError("Failed To Create Account")
+        }
+
+        setLoading(false);
+    };
+
+    function handleLogin(event:React.FormEvent<HTMLFormElement>) { 
+        event.preventDefault();
     }
+
     return (
         <>
             <Card body className="text-center">
                 <CardTitle tag="h2">{signupPage?"Signup":"Login"}</CardTitle>
-                <Form>
+                <Form onSubmit={signupPage?handleSignup:handleLogin}>
                     <FormGroup>
                         <Label 
                             for="email" 
@@ -81,7 +100,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                             <></>
                     }
                     <FormGroup>
-                        <Button onClick={handleSubmit}>{signupPage?"Signup":"Login"}</Button>
+                            <Button type="submit">{signupPage?"Signup":"Login"}</Button>
                     </FormGroup>
                 </Form>
             </Card>
