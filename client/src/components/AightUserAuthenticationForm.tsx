@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Form, FormGroup, Button, Card, CardTitle, Label, Input } from "reactstrap";
+import { useAuth } from "../utils/contexts/AuthContext";
 
 interface Props {
     signupPage?: boolean;
 }
 
 const AightUserAuthenticationForm:React.FC<Props> = (props) => {
+    // const email = useRef();
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
+    const { signup } = useAuth();
 
     const { signupPage } = props;
+
+
+    function handleSubmit(event:React.MouseEvent<HTMLButtonElement, MouseEvent>){
+        event.preventDefault();
+
+        signup(email, password)
+    }
     return (
         <>
             <Card body className="text-center">
@@ -71,7 +81,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                             <></>
                     }
                     <FormGroup>
-                        <Button>{signupPage?"Signup":"Login"}</Button>
+                        <Button onClick={handleSubmit}>{signupPage?"Signup":"Login"}</Button>
                     </FormGroup>
                 </Form>
             </Card>
