@@ -7,15 +7,16 @@ import allReducers from "./utils/reducers";
 import { Provider } from "react-redux";
 import { createStore } from "redux"; 
 import { composeWithDevTools } from "redux-devtools-extension";
+import { AuthProvider } from './utils/contexts/AuthContext';
 
 const store = createStore(allReducers, composeWithDevTools());
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AuthProvider>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
+  </AuthProvider>,
   document.getElementById('root')
 );
 
