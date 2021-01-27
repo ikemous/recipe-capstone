@@ -14,27 +14,27 @@ function QueryForm() {
   
   return (
       <Form onSubmit={handleSubmit}>
-      <Row form>
-        <Col sm={12} md={9}>
-          <FormGroup>
-            <Label for="searchbox" hidden>Search</Label>
-            <Input 
-              type="search" 
-              name="searchbox" 
-              placholder="Search Recipe..."
-              id="searchbox"
-              value={search}
-              onChange={({target}:React.ChangeEvent<HTMLInputElement>) => dispatch(updateSearch(target.value))}
-              autoComplete="off"
-            />
-          </FormGroup>
-        </Col>
-        <Col sm={12} md={3}>
-          <FormGroup>
-            <Button type="submit">Search</Button>
-          </FormGroup>
-        </Col>
-    </Row>
+        <Row form>
+          <Col sm={12} md={9}>
+            <FormGroup>
+              <Label for="searchbox" hidden>Search</Label>
+              <Input 
+                type="search" 
+                name="searchbox" 
+                placholder="Search Recipe..."
+                id="searchbox"
+                value={search}
+                onChange={({target}:React.ChangeEvent<HTMLInputElement>) => dispatch(updateSearch(target.value))}
+                autoComplete="off"
+              />
+            </FormGroup>
+          </Col>
+          <Col sm={12} md={3}>
+            <FormGroup>
+              <Button type="submit">Search</Button>
+            </FormGroup>
+          </Col>
+        </Row>
       </Form>
   );
 };
