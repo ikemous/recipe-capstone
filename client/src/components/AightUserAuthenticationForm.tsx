@@ -15,7 +15,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
 
-    const { signup } = useAuth();
+    const { signup, login } = useAuth();
 
     const { signupPage } = props;
 
@@ -39,6 +39,20 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
 
     function handleLogin(event:React.FormEvent<HTMLFormElement>) { 
         event.preventDefault();
+
+        // if(password !== confirmPassword) {
+        //     return setError("Passwords Dont Match");
+        // }
+
+        // try {
+        //     setError('');
+        //     setLoading(true);
+        //     await signup(email, password);
+        // } catch {
+        //     setError("Failed To Create Account")
+        // }
+
+        setLoading(false);
     }
 
     return (
