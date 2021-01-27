@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Form, FormGroup, Button, Card, CardTitle, Label, Input, Alert } from "reactstrap";
 import { useAuth } from "../utils/contexts/AuthContext";
 
@@ -108,8 +109,8 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
             <div className="w-100 text-center mt-2">
                 {
                     signupPage?
-                    <p>Already Have a account? Login Here</p>:
-                    <p>Don't Have a account? Signup Here</p>
+                    <p>Already Have An Account? <Link to="/login">Login Here</Link></p>:
+                    <p>Need An account? <Link to="/signup">Signup Here</Link></p>
                 }
             </div>
         </>
