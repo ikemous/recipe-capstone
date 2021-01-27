@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Form, FormGroup, Button, Card, CardTitle, Label, Input } from "reactstrap";
+import React, { useState } from "react";
+import { Form, FormGroup, Button, Card, CardTitle, Label, Input, Alert } from "reactstrap";
 import { useAuth } from "../utils/contexts/AuthContext";
 
 interface Props {
@@ -43,6 +43,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
     return (
         <>
             <Card body className="text-center">
+                {error && <Alert color="danger">{error}</Alert>}
                 <CardTitle tag="h2">{signupPage?"Signup":"Login"}</CardTitle>
                 <Form onSubmit={signupPage?handleSignup:handleLogin}>
                     <FormGroup>
@@ -100,7 +101,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                             <></>
                     }
                     <FormGroup>
-                            <Button type="submit">{signupPage?"Signup":"Login"}</Button>
+                            <Button disabled={loading}type="submit">{signupPage?"Signup":"Login"}</Button>
                     </FormGroup>
                 </Form>
             </Card>
