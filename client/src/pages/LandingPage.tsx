@@ -1,12 +1,10 @@
 import React from "react";
 import PageContainer from "../components/PageContainer";
 import QueryForm from "../components/QueryForm";
-import AightUserAuthenticationForm from "../components/AightUserAuthenticationForm";
 
 function LandingPage() {
   return (
     <PageContainer>
-      <AightUserAuthenticationForm signupPage />
        <QueryForm />
        <div>
          <h2>Search For Recipes!</h2>
