@@ -122,6 +122,11 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                             <Button disabled={loading}type="submit">{signupPage?"Signup":"Login"}</Button>
                     </FormGroup>
                 </Form>
+                {!signupPage &&
+                    <div className="w-100 text-center mt-2">
+                        <Link to="/forgot-password">Forgot Password?</Link>
+                    </div>
+                }
             </Card>
             <div className="w-100 text-center mt-2">
                 {
