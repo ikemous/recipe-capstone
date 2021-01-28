@@ -17,7 +17,7 @@ function LogoutButton() {
     }
 
     return (
-        <Button onClick={handleLogout}>
+        <Button color="danger" onClick={handleLogout}>
             Logout
         </Button>
     );
