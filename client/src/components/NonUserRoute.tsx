@@ -13,11 +13,11 @@ const PrivateRoute:React.FC<Props> = (props) => {
         <Route
             {...rest}
             render={(routeProps:any) => 
-            currentUser?
+            !currentUser?
             <Component {...routeProps} />:
             <Redirect 
                 to={{
-                    pathname: "/login",
+                    pathname: "/profile",
                     state: { from: routeProps.location }
                 }} 
             />
