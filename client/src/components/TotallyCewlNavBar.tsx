@@ -1,5 +1,15 @@
 import React, { useState  } from "react";
-import { Navbar, NavbarToggler, Collapse, Nav, NavItem, NavLink, NavbarBrand } from "reactstrap";
+import { 
+  Navbar, 
+  NavbarToggler, 
+  Collapse, Nav, 
+  NavItem, NavLink, 
+  NavbarBrand,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 import LogoutButton from "./LogoutButton";
 import { useAuth } from "../utils/contexts/AuthContext";
 
@@ -15,6 +25,26 @@ function TotallyCewlNavBar() {
         <Nav navbar>
             {currentUser && 
               <>
+                <UncontrolledDropdown nav caret>
+                    <DropdownToggle>
+                      Account
+                    </DropdownToggle>
+                  <DropdownItem>
+                    <NavItem>
+                      <NavLink href="/saved-recipes">Saved Recipes</NavLink>
+                    </NavItem>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavItem>
+                      <NavLink href="/my-recipes">My Recipes</NavLink>
+                    </NavItem>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavItem>
+                      <NavLink href="/profile">Profile</NavLink>
+                    </NavItem>
+                  </DropdownItem>
+                </UncontrolledDropdown>
                 <NavItem>
                   <NavLink href="/saved-recipes">Saved Recipes</NavLink>
                 </NavItem>
@@ -29,7 +59,18 @@ function TotallyCewlNavBar() {
                 </NavItem>
               </>
             }
-          
+            {!currentUser&&
+              <>
+                <NavItem>
+                  <NavLink href="/signup">Signup</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/login">Login</NavLink>
+                </NavItem>
+                <NavItem>
+                </NavItem>
+              </>
+            }
         </Nav>
       </Collapse>
     </Navbar>
