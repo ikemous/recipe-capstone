@@ -3,12 +3,13 @@ import { Link, useHistory } from "react-router-dom";
 import { Form, FormGroup, Button, Card, CardTitle, Label, Input, Alert } from "reactstrap";
 import { useAuth } from "../utils/contexts/AuthContext";
 
+
 interface Props {
     signupPage?: boolean;
 }
 
 const AightUserAuthenticationForm:React.FC<Props> = (props) => {
-    // const email = useRef();
+
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
@@ -74,6 +75,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                             placeholder="example@email.com" 
                             value={email}
                             onChange={({target}:React.ChangeEvent<HTMLInputElement>) => setEmail(target.value)}
+                            autoComplete="off"
                         />
                     </FormGroup>
                     <FormGroup>
@@ -90,6 +92,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                             placeholder="password..." 
                             value={password}
                             onChange={({target}:React.ChangeEvent<HTMLInputElement>) => setPassword(target.value)}
+                            autoComplete="off"
                         />
                     </FormGroup>
                     {
@@ -109,6 +112,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                                         placeholder="password..." 
                                         value={confirmPassword}
                                         onChange={({target}:React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(target.value)}
+                                        autoComplete="off"
                                     />
                                 </FormGroup>
                             ):

@@ -10,7 +10,7 @@ function LogoutButton() {
     async function handleLogout() {
         try {
             await logout();
-            history.push("/");
+            history.push("/login");
         } catch {
             console.log("Failed To Logout :(");
         }
