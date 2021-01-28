@@ -25,38 +25,35 @@ function TotallyCewlNavBar() {
         <Nav navbar>
             {currentUser && 
               <>
-                <UncontrolledDropdown nav caret>
-                    <DropdownToggle>
-                      Account
-                    </DropdownToggle>
-                  <DropdownItem>
-                    <NavItem>
-                      <NavLink href="/saved-recipes">Saved Recipes</NavLink>
-                    </NavItem>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavItem>
-                      <NavLink href="/my-recipes">My Recipes</NavLink>
-                    </NavItem>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavItem>
-                      <NavLink href="/profile">Profile</NavLink>
-                    </NavItem>
-                  </DropdownItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    Account
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>
+                      <NavItem>
+                        <NavLink href="/profile">Profile</NavLink>
+                      </NavItem>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavItem>
+                        <NavLink href="/saved-recipes">Saved Recipes</NavLink>
+                      </NavItem>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavItem>
+                        <NavLink href="/my-recipes">My Recipes</NavLink>
+                      </NavItem>
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      <NavItem>
+                        <LogoutButton />
+                      </NavItem>
+                    </DropdownItem>
+                  </DropdownMenu>
                 </UncontrolledDropdown>
-                <NavItem>
-                  <NavLink href="/saved-recipes">Saved Recipes</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/my-recipes">My Recipes</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/profile">Profile</NavLink>
-                </NavItem>
-                <NavItem>
-                  <LogoutButton />
-                </NavItem>
+
               </>
             }
             {!currentUser&&
