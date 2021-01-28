@@ -7,6 +7,7 @@ const AightUserAuthenticationForm = () => {
 
     const [email, setEmail] = useState<string>("");
     const [error, setError] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
     const [sent, setSent] = useState<boolean>(false);
 
     const { resetPassword } = useAuth();
@@ -18,16 +19,18 @@ const AightUserAuthenticationForm = () => {
             setError('');
             setSent(true);
             await resetPassword(email);
+            setMessage("Check Email For Password Reset");
         } catch {
             setError("No Account or Incorrect Email");
-            setSent(false);
         }
+        setSent(false);
     }
 
     return (
         <>
             <Card body className="text-center">
                 {error && <Alert color="danger">{error}</Alert>}
+                {message && <Alert color="success">{message}</Alert>}
                 <CardTitle tag="h2">Forgot Password?</CardTitle>
                 <Form onSubmit={handleReset}>
                     <FormGroup>
