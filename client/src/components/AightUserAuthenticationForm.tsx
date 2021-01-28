@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Form, FormGroup, Button, Card, CardTitle, Label, Input, Alert } from "reactstrap";
 import { useAuth } from "../utils/contexts/AuthContext";
 
@@ -14,6 +14,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
     const [confirmPassword, setConfirmPassword] = useState<string>("");
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    const history = useHistory();
 
     const { signup, login } = useAuth();
 
@@ -30,6 +31,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
             setError('');
             setLoading(true);
             await signup(email, password);
+            history.push("/");
         } catch {
             setError("Failed To Create Account")
         }
@@ -44,6 +46,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
             setError('');
             setLoading(true);
             await login(email, password);
+            history.push("/");
         } catch {
             setError("No Account Or Incorrect Password")
         }
