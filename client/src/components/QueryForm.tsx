@@ -15,7 +15,7 @@ function QueryForm() {
   return (
       <Form onSubmit={handleSubmit}>
         <Row form>
-          <Col sm={12} md={9}>
+          <Col className="offset-md-1" xs={9}>
             <FormGroup>
               <Label for="searchbox" hidden>Search</Label>
               <Input 
@@ -29,7 +29,7 @@ function QueryForm() {
               />
             </FormGroup>
           </Col>
-          <Col sm={12} md={3}>
+          <Col xs={1}>
             <FormGroup>
               <Button type="submit">Search</Button>
             </FormGroup>
