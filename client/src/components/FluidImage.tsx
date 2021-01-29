@@ -8,7 +8,7 @@ interface Props {
 
 const FluidImage:React.FC<Props> = (props) => {
     const { src, alt, style} = props;
-    return <img src={src} alt={alt} style={style} />
+    return <img className="img-fluid" src={src} alt={alt} style={style} />
 };
 
 FluidImage.defaultProps = {
