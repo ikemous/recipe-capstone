@@ -8,7 +8,7 @@ const PageContainer:React.FC<Props> = ({ children }) => {
   return (
     <>
       <TotallyCewlNavBar />
-      <Container>
+      <Container fluid={true}>
         {children}
       </Container>
     </>
