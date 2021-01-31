@@ -14,9 +14,20 @@ function QueryForm() {
   }
   
   return (
-      <Form style={{ height: "40vh", paddingTop: "10px", backgroundImage: `url(${queryBackground})`, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", backgroundSize: "100% 73%"}} onSubmit={handleSubmit}>
+      <Form style={{ 
+          height: "40vh", 
+          paddingTop: "10px",
+          backgroundImage: `url(${queryBackground})`, 
+          backgroundRepeat: "no-repeat", 
+          backgroundAttachment: "fixed",
+          backgroundSize: "100% 73%",
+          marginLeft: 0,
+          marginRight: 0
+        }} 
+        onSubmit={handleSubmit}
+      >
         <Row form>
-          <Col className="offset-md-1" xs={9}>
+          <Col xs={{ size: 8, offset: 1}}>
             <FormGroup>
               <Label for="searchbox" hidden>Search</Label>
               <Input 
@@ -30,7 +41,7 @@ function QueryForm() {
               />
             </FormGroup>
           </Col>
-          <Col xs={1}>
+          <Col xs={{ size: 2}}>
             <FormGroup>
               <Button type="submit">Search</Button>
             </FormGroup>
