@@ -1,4 +1,5 @@
 import React from "react";
+import queryBackground from "../utils/images/query-background.jpg";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { updateSearch } from "../utils/actions";
@@ -13,7 +14,7 @@ function QueryForm() {
   }
   
   return (
-      <Form style={{ height: "40vh", paddingTop: "10px"}} onSubmit={handleSubmit}>
+      <Form style={{ height: "40vh", paddingTop: "10px", backgroundImage: `url(${queryBackground})`, backgroundRepeat: "no-repeat", backgroundAttachment: "fixed", backgroundSize: "100% 73%"}} onSubmit={handleSubmit}>
         <Row form>
           <Col className="offset-md-1" xs={9}>
             <FormGroup>
