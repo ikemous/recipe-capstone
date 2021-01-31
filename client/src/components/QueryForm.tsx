@@ -13,7 +13,7 @@ function QueryForm() {
   }
   
   return (
-      <Form onSubmit={handleSubmit}>
+      <Form style={{ height: "40vh", paddingTop: "10px"}} onSubmit={handleSubmit}>
         <Row form>
           <Col className="offset-md-1" xs={9}>
             <FormGroup>

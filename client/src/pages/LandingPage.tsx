@@ -8,7 +8,7 @@ import "./landingPage.css";
 function LandingPage() {
   return (
     <PageContainer>
-       <QueryForm />
+      <QueryForm />
        <Row className="item-section">
           <Col className="text-center" sm={12} md={4}>
             <FluidImage />
