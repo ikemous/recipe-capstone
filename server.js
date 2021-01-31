@@ -1,9 +1,11 @@
 const express = require("express");
 const path = require("path");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const server = express();
 const db = require("./models");
+
+
 if(process.env.Node_ENV === "production") {
     server.use(express.static("client/build"));
 }
@@ -11,6 +13,7 @@ if(process.env.Node_ENV === "production") {
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
+server.use(require("./routes/recipe-api-routes.js"));
 
 // Send every request to the React app
 // Define any API routes before this runs
