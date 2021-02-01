@@ -4,7 +4,7 @@ const queryExample = require("../queryExample.json");
 
 router.get("/recipe", (req, res) => {
     console.log("Made it");
-    res.json("Made it");
+    res.json(queryExample);
 });
 
 module.exports = router;

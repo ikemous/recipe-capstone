@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const server = express();
 const db = require("./models");
 
@@ -15,6 +14,10 @@ server.use(express.json());
 
 server.use(require("./routes/recipe-api-routes.js"));
 
+server.get("/test", (req, res) => {
+    console.log("made it");
+    res.json("made it");
+})
 // Send every request to the React app
 // Define any API routes before this runs
 server.get("*", (req, res) => {
@@ -22,8 +25,8 @@ server.get("*", (req, res) => {
 });
   
 
-db.sequelize.sync({ force: true }).then(() => {
-    server.listen(PORT, () => {
+db.sequelize.sync({ force: true }).then(function(){
+    server.listen(PORT,function(){
         console.log(`🌎 ==> API server now on port http://localhost:${PORT}`);
     });
 });
