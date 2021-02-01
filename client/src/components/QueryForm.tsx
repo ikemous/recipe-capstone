@@ -38,6 +38,7 @@ function QueryForm() {
                 value={search}
                 onChange={({target}:React.ChangeEvent<HTMLInputElement>) => dispatch(updateSearch(target.value))}
                 autoComplete="off"
+                placeholder="Search Ingredient..."
               />
             </FormGroup>
           </Col>
