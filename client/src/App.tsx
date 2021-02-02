@@ -9,6 +9,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import NonUserRoute from "./components/NonUserRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <AuthProvider>
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/search/:ingredient" component={SearchPage} />
           <NonUserRoute path="/signup" component={SignupPage} />
           <NonUserRoute path="/login" component={LoginPage} />
           <NonUserRoute path="/forgot-password" component={ForgotPasswordPage} />
