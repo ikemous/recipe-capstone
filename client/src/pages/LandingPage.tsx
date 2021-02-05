@@ -9,11 +9,25 @@ function LandingPage() {
   return (
     <>
       <TotallyCewlNavBar />
+      <Row
+        style={{
+          height: "40vh", 
+          paddingTop: "10px",
+          marginLeft: 0,
+          marginRight: 0,
+          background: `url(./images/query-background.jpg)`,
+          backgroundRepeat: "no-repeat", 
+          backgroundAttachment: "fixed",
+          backgroundSize: "100% 73%",
+        }}
+      >
+        <QueryForm />
+      </Row>
       <Container style={{padding: 0, margin: 0}} fluid={true}>
         <QueryForm />
       </Container>
       <Container fluid={true}>
-        <Row style={{ marginLeft: 0, marginRight: 0 }} className="item-section">
+        <Row className="item-section">
           <Col className="text-center" sm={12} md={4}>
             <FluidImage />
           </Col>

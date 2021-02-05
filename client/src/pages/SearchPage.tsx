@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
 import QueryForm from "../components/QueryForm";
+import { Row } from "reactstrap";
 import { useDispatch, RootStateOrAny } from "react-redux";
 import { Container } from "reactstrap";
 import { useParams } from "react-router-dom";
@@ -21,9 +22,20 @@ function SearchPage() {
     return (
         <>  
             <TotallyCewlNavBar />
-            <Container style={{padding: 0, margin: 0}} fluid={true}>
+            <Row
+                style={{
+                height: "40vh", 
+                paddingTop: "10px",
+                marginLeft: 0,
+                marginRight: 0,
+                background: `url(./images/query-background.jpg)`,
+                backgroundRepeat: "no-repeat", 
+                backgroundAttachment: "fixed",
+                backgroundSize: "100% 73%",
+                }}
+            >
                 <QueryForm />
-            </Container>
+            </Row>
             <Container fluid={true}>
 
             </Container>

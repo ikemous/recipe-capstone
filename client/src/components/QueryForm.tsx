@@ -3,40 +3,33 @@ import queryBackground from "../utils/images/query-background.jpg";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { updateSearch } from "../utils/actions";
-import { useHistory, useLocation } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 function QueryForm() {
   const { search } = useSelector(({query}:RootStateOrAny) => query)
   const dispatch = useDispatch();
   const history = useHistory();
-  const { pathname } = useLocation();
-  console.log(pathname);
+
   const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if(pathname === "/") {
-      history.push(`/search/${search}`)
-    }
+    history.push(`/search/${search}`)
   }
   
   return (
-      <Form style={{ 
-          height: "40vh", 
-          paddingTop: "10px",
-          backgroundImage: `url(${queryBackground})`, 
-          backgroundRepeat: "no-repeat", 
-          backgroundAttachment: "fixed",
-          backgroundSize: "100% 73%",
-        }} 
+      <Form 
         onSubmit={handleSubmit}
+        style={{
+          width: "100%"
+        }}
       >
         <Row 
           style={{
             marginLeft: 0,
-            marginRight: 0
+            marginRight: 0,
           }} 
           form
         >
-          <Col xs={{ size: 8, offset: 1}}>
+          <Col xs={{ size: 8 }} md={{size: 8, offset: 2}}>
             <FormGroup>
               <Label for="searchbox" hidden>Search</Label>
               <Input 
@@ -51,7 +44,7 @@ function QueryForm() {
               />
             </FormGroup>
           </Col>
-          <Col xs={{ size: 2}}>
+          <Col xs={{ size: 2}} md={{size: 2}}>
             <FormGroup>
               <Button type="submit">Search</Button>
             </FormGroup>
