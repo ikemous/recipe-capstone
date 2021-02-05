@@ -1,4 +1,5 @@
 <h1 style="text-align: center">uCook!</h1>
+<img style="height: 400px; width: 100%;" src="./landingPreview.JPG" />
 
 ## Table Of Contents
 1. [Description](#description)
@@ -6,6 +7,7 @@
 1. [Safety](#safety)
 1. [Introduction](#introduction)
 1. [Relations](#relations)
+1. [Misc Content](#misc)
 1. [Create Account](#create-account)
 1. [Search Recipe](#search-recipe)
 1. [Save Recipe](#save-recipe)
@@ -30,7 +32,30 @@ User Manual - [https://github.com/ikemous/recipe-capstone/blob/main/README.md](h
 Code - [https://github.com/ikemous/recipe-capstone](https://github.com/ikemous/recipe-capstone)
 Edmam API - [https://developer.edamam.com/edamam-docs-recipe-api](https://developer.edamam.com/edamam-docs-recipe-api)
 
+### Misc
+All images will be either user upload or be a link from an API . There will only be four images from [unsplash.com](unsplash.com). below are some of the possible choices. Images may change over time.
+
+<img src="./client/src/utils/images/query-background.JPG" />
+
+<img src="./marie-dehayes-food.jpg" alt="image from marie-dehayes"/>
+
+<img src="./mindaugas-petrutis-food.jpg" alt="image from marie-dehayes"/>
+
+<img src="./henar-langa-food.jpg" alt="image from marie-dehayes"/>
+
+
+Fonts will be taken from font awesome. see links below for some of the link examples. I will need a save icon to show to save the recipe or recipe ingredient. The untensils icon will be used to show food! The trash icon is to be able to delete anything saved. There could be more icons to add as application creation goes on.
+
+[https://fontawesome.com/icons/utensils?style=solid](https://fontawesome.com/icons/utensils?style=solid)
+
+[https://fontawesome.com/icons/save?style=solid](https://fontawesome.com/icons/save?style=solid)
+
+[https://fontawesome.com/icons/trash-alt?style=solid](https://fontawesome.com/icons/trash-alt?style=solid)
+
 ### Create Account
+
+<img src="./signupPage.jpg" alt="image from marie-dehayes"/>
+
 1. Click create account on the top right
 1. Fill out email address field
 1. Fill out password field
@@ -38,6 +63,9 @@ Edmam API - [https://developer.edamam.com/edamam-docs-recipe-api](https://develo
 1. Click signup!
 
 ### Forgot Password
+
+<img src="./forgotPage.jpg" alt="image from marie-dehayes"/>
+
 1. Click on login button
 1. Click on forgot password link
 1. Fill out email field
