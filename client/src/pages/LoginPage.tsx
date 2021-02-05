@@ -1,13 +1,20 @@
 import  React from "react";
-import { Row } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import AightUserAuthenticationForm from "../components/AightUserAuthenticationForm";
 import PageContainer from "../components/PageContainer";
 
 function LoginPage() {
     return (
         <PageContainer>
-            <Row>
-                <AightUserAuthenticationForm />
+            <Row 
+                style={{
+                    alignItems: "center", 
+                    height: "75vh"
+                }}
+            >
+                <Col>
+                    <AightUserAuthenticationForm />
+                </Col>
             </Row>
         </PageContainer>
     );
