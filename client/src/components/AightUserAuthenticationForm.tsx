@@ -109,7 +109,7 @@ const AightUserAuthenticationForm:React.FC<Props> = (props) => {
                                         type="password" 
                                         name="password-confirm" 
                                         id="password-confirm" 
-                                        placeholder="password..." 
+                                        placeholder="confirm password..." 
                                         value={confirmPassword}
                                         onChange={({target}:React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(target.value)}
                                         autoComplete="off"
