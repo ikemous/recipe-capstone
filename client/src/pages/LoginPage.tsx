@@ -12,7 +12,10 @@ function LoginPage() {
                     height: "75vh"
                 }}
             >
-                <Col>
+                <Col 
+                    sm={{size: 12}}
+                    md={{size: 6, offset: 3}}
+                >
                     <AightUserAuthenticationForm />
                 </Col>
             </Row>
