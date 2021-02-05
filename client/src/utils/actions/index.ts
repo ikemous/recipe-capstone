@@ -6,3 +6,10 @@ export const updateSearch = (search:string):QueryAction => {
         payload: search,
     };
 };
+
+export const updateRecipeList = (list: any) => {
+    return {
+        type: "UPDATE_RECIPE_LIST",
+        payload: list,
+    };
+};
