@@ -23,9 +23,6 @@ function LandingPage() {
       >
         <QueryForm />
       </Row>
-      <Container style={{padding: 0, margin: 0}} fluid={true}>
-        <QueryForm />
-      </Container>
       <Container fluid={true}>
         <Row className="item-section">
           <Col className="text-center" sm={12} md={4}>
