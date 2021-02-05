@@ -35,13 +35,13 @@ Edmam API - [https://developer.edamam.com/edamam-docs-recipe-api](https://develo
 ### Misc
 All images will be either user upload or be a link from an API . There will only be four images from [unsplash.com](unsplash.com). below are some of the possible choices. Images may change over time.
 
-<img src="./client/src/utils/images/query-background.JPG" />
+<img src="./client/src/utils/images/query-background.JPG" style="height: 200px" />
 
-<img src="./marie-dehayes-food.jpg" alt="image from marie-dehayes"/>
+<img src="./marie-dehayes-food.jpg" alt="image from marie-dehayes" style="height: 200px" />
 
-<img src="./mindaugas-petrutis-food.jpg" alt="image from marie-dehayes"/>
+<img src="./mindaugas-petrutis-food.jpg" alt="image from marie-dehayes" style="height: 200px" />
 
-<img src="./henar-langa-food.jpg" alt="image from marie-dehayes"/>
+<img src="./henar-langa-food.jpg" alt="image from marie-dehayes" style="height: 200px" />
 
 
 Fonts will be taken from font awesome. see links below for some of the link examples. I will need a save icon to show to save the recipe or recipe ingredient. The untensils icon will be used to show food! The trash icon is to be able to delete anything saved. There could be more icons to add as application creation goes on.
