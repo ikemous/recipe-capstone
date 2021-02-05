@@ -21,12 +21,16 @@ function QueryForm() {
           backgroundRepeat: "no-repeat", 
           backgroundAttachment: "fixed",
           backgroundSize: "100% 73%",
-          marginLeft: 0,
-          marginRight: 0
         }} 
         onSubmit={handleSubmit}
       >
-        <Row form>
+        <Row 
+          style={{
+            marginLeft: 0,
+            marginRight: 0
+          }} 
+          form
+        >
           <Col xs={{ size: 8, offset: 1}}>
             <FormGroup>
               <Label for="searchbox" hidden>Search</Label>
