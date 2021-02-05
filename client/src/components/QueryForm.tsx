@@ -3,14 +3,19 @@ import queryBackground from "../utils/images/query-background.jpg";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { updateSearch } from "../utils/actions";
+import { useHistory, useLocation } from "react-router-dom"
 
 function QueryForm() {
   const { search } = useSelector(({query}:RootStateOrAny) => query)
   const dispatch = useDispatch();
-
+  const history = useHistory();
+  const { pathname } = useLocation();
+  console.log(pathname);
   const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    if(pathname === "/") {
+      history.push(`/search/${search}`)
+    }
   }
   
   return (
