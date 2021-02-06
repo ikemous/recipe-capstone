@@ -1,5 +1,4 @@
 import React from "react";
-import queryBackground from "../utils/images/query-background.jpg";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { updateSearch } from "../utils/actions";
