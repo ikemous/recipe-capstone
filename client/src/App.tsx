@@ -17,7 +17,7 @@ function App() {
       <AuthProvider>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/search/:ingredient" component={SearchPage} />
+          <Route path="/search" component={SearchPage} />
           <NonUserRoute path="/signup" component={SignupPage} />
           <NonUserRoute path="/login" component={LoginPage} />
           <NonUserRoute path="/forgot-password" component={ForgotPasswordPage} />

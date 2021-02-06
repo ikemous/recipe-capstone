@@ -3,9 +3,10 @@ const axios = require("axios");
 const queryExample = require("../queryExample.json");
 
 router.get("/recipes/:ingredient", (req, res) => {
-    console.log("Made it");
     console.log(req.params);
     res.json(queryExample);
 });
+
+router.get("/recipes", (req, res) => res.json(queryExample));
 
 module.exports = router;

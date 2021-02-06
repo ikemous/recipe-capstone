@@ -1,5 +1,7 @@
 import axios from "axios";
 
-export const getRecipes = (ingredient: string) => axios.get(`/recipes/${ingredient}`);
+export const getRecipesByIngredient = (ingredient: string) => axios.get(`/recipes/${ingredient}`);
+
+export const getSampleRecipes = () => axios.get("/recipes");
 
 export {};
