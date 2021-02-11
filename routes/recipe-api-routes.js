@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
-const queryExample = require("../queryExample.json");
+const queryExample = require("../queryExmaple.json");
 
 router.get("/recipes/:ingredient", (req, res) => {
     console.log(req.params);

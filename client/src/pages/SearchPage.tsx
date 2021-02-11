@@ -5,12 +5,8 @@ import { Row } from "reactstrap";
 import { useDispatch, RootStateOrAny } from "react-redux";
 import { getSampleRecipes } from "../utils/API";
 import { Container } from "reactstrap";
-import { useParams } from "react-router-dom";
-// temp import for query
-import queryExample from "../utils/queryExmaple.json";
 
 function SearchPage() {
-    const params:{ingredient: string} = useParams();
     const dispatch = useDispatch();
 
     
@@ -22,7 +18,6 @@ function SearchPage() {
         .catch(error => console.log(error));
     },[])
 
-    console.log(params);
     return (
         <>  
             <TotallyCewlNavBar />
