@@ -1,12 +1,12 @@
-import { RecipeAction, RecipeList } from "../types";
+import { RecipeList, RecipeListAction } from "../types";
 
 const initialState:RecipeList = [];
 
-const recipeListReducer = (state:RecipeList = initialState, { type, payload }:RecipeAction):RecipeList => {
+const recipeListReducer = (state:RecipeList = initialState, { type, payload }:RecipeListAction):RecipeList => {
     switch(type) {
         case "UPDATE_RECIPE_LIST":
             console.log(payload, state);
-            return state;
+            return payload as RecipeList;
         default: 
             return state;
     };

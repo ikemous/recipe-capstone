@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
-import { updateSearch } from "../utils/actions";
+import { updateRecipeList, updateSearch } from "../utils/actions";
 import { useHistory } from "react-router-dom"
+import { getSampleRecipes } from "../utils/API";
 
 function QueryForm() {
   const { search } = useSelector(({query}:RootStateOrAny) => query)
@@ -11,7 +12,12 @@ function QueryForm() {
 
   const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    history.push(`/search/${search}`)
+    getSampleRecipes()
+    .then(({data}) => {
+      dispatch(updateRecipeList(data.hits));
+    })
+    .catch(error => console.log(error));
+    history.push(`/search`);
   }
   
   return (
