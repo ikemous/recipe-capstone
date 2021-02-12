@@ -1,17 +1,15 @@
-import { RecipeList, RecipeListAction } from "../types";
+import { RecipeAction, RecipeList } from "../types";
 
-const initialState = {
-    name: "",
-};
+const initialState:RecipeList = [];
 
-const recipeListReducer = (state:RecipeList = initialState, { type, payload }:RecipeListAction):RecipeList => {
+const recipeListReducer = (state:RecipeList = initialState, { type, payload }:RecipeAction):RecipeList => {
     switch(type) {
-        case "":
-            return { ...state }
+        case "UPDATE_RECIPE_LIST":
+            console.log(payload, state);
+            return state;
         default: 
             return state;
     };
 };
 
 export default recipeListReducer;
-

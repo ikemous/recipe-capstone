@@ -1,10 +1,28 @@
 export interface Recipe {
-    name: string;
+    saved: boolean;
+    recipe: {
+        calories: number;
+        image: string;
+        ingredients: Array<{
+            text: string;
+            image: string;
+            label: string;
+        }>;
+        totalTime: number;
+        yield: number;
+        url: string;
+    }
 };
 
+export type RecipeList = Array<Recipe>
+
+export interface RecipeListAction {
+    type: string;
+    payload: RecipeList
+}
 export interface RecipeAction {
     type: string;
-    payload: string;
+    payload: string | Recipe;
 };
 
 export interface Query {
@@ -14,13 +32,4 @@ export interface Query {
 export interface QueryAction {
     type: string;
     payload: string;
-};
-
-export interface RecipeList {
-    name: string;
-};
-
-export interface RecipeListAction {
-    type: string;
-    payload: any;
 };

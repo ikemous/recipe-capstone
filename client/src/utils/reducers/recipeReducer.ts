@@ -1,7 +1,15 @@
 import { Recipe, RecipeAction } from"../types";
 
-const initialState = {
-  name: "" 
+const initialState:Recipe = {
+  saved: false,
+  recipe: {
+    calories: 0,
+    image: "",
+    ingredients: [],
+    totalTime: 0,
+    yield: 0,
+    url: ""
+  }
 };
 
 const recipeReducer = (state:Recipe = initialState, {type, payload}:RecipeAction):Recipe => {
