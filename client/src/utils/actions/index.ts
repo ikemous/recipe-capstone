@@ -1,4 +1,4 @@
-import { QueryAction, RecipeListAction, RecipeList } from "../types";
+import { QueryAction, RecipeListAction, RecipeList, Recipe, RecipeAction } from "../types";
 
 export const updateSearch = (search:string):QueryAction => {
     return {
@@ -13,3 +13,10 @@ export const updateRecipeList = (list: RecipeList):RecipeListAction => {
         payload: list,
     };
 };
+
+export const updateRecipe = (recipe: Recipe):RecipeAction => {
+    return {
+        type: "UPDATE_RECIPE",
+        payload: recipe,
+    };
+}

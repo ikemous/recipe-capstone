@@ -1,5 +1,5 @@
 export interface Recipe {
-    saved: boolean;
+    saved?: boolean;
     recipe: {
         calories: number;
         image: string;

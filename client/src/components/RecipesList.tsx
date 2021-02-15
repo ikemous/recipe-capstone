@@ -13,7 +13,7 @@ import {
     CardColumns,
     Col
 } from "reactstrap";
-import { useSelector, RootStateOrAny } from "react-redux";
+import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 
 function RecipesList() {
 
@@ -34,7 +34,7 @@ function RecipesList() {
                 })
             }
         </CardColumns>
-    )
+    );
 };
 
 export default RecipesList;

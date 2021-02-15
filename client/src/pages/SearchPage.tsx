@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
 import QueryForm from "../components/QueryForm";
-import { Row } from "reactstrap";
+import { Modal, ModalHeader, Row } from "reactstrap";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { getSampleRecipes } from "../utils/API";
 import { Container } from "reactstrap";
@@ -9,6 +9,7 @@ import { updateRecipeList } from "../utils/actions";
 import RecipesList from "../components/RecipesList";
 
 function SearchPage() {
+    
     const dispatch = useDispatch();
     const recipeList = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
 
@@ -20,8 +21,7 @@ function SearchPage() {
             })
             .catch(error => console.log(error));
         }
-        
-    },[])
+    },[]);
 
     return (
         <>  
@@ -31,6 +31,9 @@ function SearchPage() {
                 <Row>
                     <RecipesList />
                 </Row>
+                <Modal>
+                    <ModalHeader></ModalHeader>
+                </Modal>
             </Container>
         </>
     );
