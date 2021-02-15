@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
 import QueryForm from "../components/QueryForm";
+import { Row } from "reactstrap";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { getSampleRecipes } from "../utils/API";
 import { Container } from "reactstrap";
@@ -25,7 +26,9 @@ function SearchPage() {
             <TotallyCewlNavBar />
             <QueryForm />
             <Container>
-
+                <Row>
+                    
+                </Row>
             </Container>
         </>
     );
