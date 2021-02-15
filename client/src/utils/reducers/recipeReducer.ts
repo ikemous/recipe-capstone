@@ -8,7 +8,8 @@ const initialState:Recipe = {
     ingredients: [],
     totalTime: 0,
     yield: 0,
-    url: ""
+    url: "",
+    label: "",
   }
 };
 

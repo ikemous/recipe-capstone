@@ -20,10 +20,12 @@ function RecipesList() {
     return (
         <CardGroup>
             {
-                recipeList.map((recipe:Recipe) => {
+                recipeList.map((recipeObject:Recipe) => {
+                    const { label } = recipeObject.recipe;
+                    console.log(recipeObject.recipe);
                     return (
                         <Card key={uuidv4()}>
-                            
+                            <CardTitle>{ label }</CardTitle>
                         </Card>
                     )
                 })

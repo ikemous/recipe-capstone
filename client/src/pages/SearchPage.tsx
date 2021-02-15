@@ -6,6 +6,7 @@ import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { getSampleRecipes } from "../utils/API";
 import { Container } from "reactstrap";
 import { updateRecipeList } from "../utils/actions";
+import RecipesList from "../components/RecipesList";
 
 function SearchPage() {
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function SearchPage() {
             })
             .catch(error => console.log(error));
         }
+        
     },[])
 
     return (
@@ -27,7 +29,7 @@ function SearchPage() {
             <QueryForm />
             <Container>
                 <Row>
-                    
+                    <RecipesList />
                 </Row>
             </Container>
         </>

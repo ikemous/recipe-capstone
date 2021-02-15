@@ -11,6 +11,7 @@ export interface Recipe {
         totalTime: number;
         yield: number;
         url: string;
+        label: string;
     }
 };
 
