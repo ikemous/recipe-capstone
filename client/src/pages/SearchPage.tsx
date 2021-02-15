@@ -12,7 +12,7 @@ function SearchPage() {
     const recipeList = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
 
     useEffect(() => {
-        if(recipeList === undefined || recipeList.length == 0) {
+        if(recipeList === undefined || recipeList.length === 0) {
             getSampleRecipes()
             .then(({data}) => {
                 dispatch(updateRecipeList(data.hits));
