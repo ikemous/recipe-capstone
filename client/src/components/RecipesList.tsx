@@ -9,7 +9,9 @@ import {
     CardTitle, 
     CardText, 
     Button, 
-    CardSubtitle 
+    CardSubtitle,
+    CardColumns,
+    Col
 } from "reactstrap";
 import { useSelector, RootStateOrAny } from "react-redux";
 
@@ -18,19 +20,20 @@ function RecipesList() {
     const recipeList = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
 
     return (
-        <CardGroup>
+        <CardColumns>
             {
                 recipeList.map((recipeObject:Recipe) => {
-                    const { label } = recipeObject.recipe;
+                    const { label, image } = recipeObject.recipe;
                     console.log(recipeObject.recipe);
                     return (
                         <Card key={uuidv4()}>
-                            <CardTitle>{ label }</CardTitle>
+                            <CardImg top width="100%" src={image} />
+                            <CardTitle className="text-center" tag="h3">{ label }</CardTitle>
                         </Card>
-                    )
+                    );
                 })
             }
-        </CardGroup>
+        </CardColumns>
     )
 };
 
