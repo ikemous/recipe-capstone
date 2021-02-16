@@ -3,13 +3,14 @@ const axios = require("axios");
 const queryExample = require("../queryExmaple.json");
 
 router.get("/recipes/:ingredient", (req, res) => {
-    axios.get(`https://api.edamam.com/search?q=chicken&app_id=${process.env.EDMAM_API_ID}&app_key=${process.env.EDMAM_API_KEY}`)
+    const { ingredient } = req.params
+    console.log(req.params);
+    axios.get(`https://api.edamam.com/search?q=${ingredient}&app_id=${process.env.EDMAM_API_ID}&app_key=${process.env.EDMAM_API_KEY}`)
     .then(results => {
         console.log(results);
-        res.json(results);
+        res.json(results.data);
     })
     .catch(error => {
-        console.log(error);
         res.json(error);
     });
 });
