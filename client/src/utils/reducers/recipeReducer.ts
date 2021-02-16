@@ -1,7 +1,7 @@
 import { Recipe, RecipeAction } from"../types";
 
 const initialState:Recipe = {
-  saved: false,
+  bookmarked: false,
   recipe: {
     calories: 0,
     image: "",
