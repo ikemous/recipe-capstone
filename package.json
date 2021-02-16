@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "dotnet": "^1.1.4",
     "express": "^4.17.1",
     "if-env": "^1.0.4",

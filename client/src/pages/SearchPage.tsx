@@ -6,6 +6,7 @@ import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { getSampleRecipes } from "../utils/API";
 import { Container } from "reactstrap";
 import { updateRecipeList } from "../utils/actions";
+import { AiFillHeart } from "react-icons/ai"
 import RecipesList from "../components/RecipesList";
 import FluidImage from "../components/FluidImage";
 
@@ -42,7 +43,7 @@ function SearchPage() {
 
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
-                        <Button color="primary">Heart</Button>
+                        <Button color="primary"><AiFillHeart style={recipe.bookmarked?{color:"red"}:{color: "white"}} /></Button>
                         <Button color="danger" onClick={handleSet}>Close</Button>
                     </ModalFooter>
                 </Modal>
