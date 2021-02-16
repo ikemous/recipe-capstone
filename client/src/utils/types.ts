@@ -1,5 +1,5 @@
 export interface Recipe {
-    saved?: boolean;
+    bookmarked?: boolean;
     recipe: {
         calories: number;
         image: string;

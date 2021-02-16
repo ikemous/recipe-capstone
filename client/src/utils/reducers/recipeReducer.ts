@@ -16,7 +16,7 @@ const initialState:Recipe = {
 const recipeReducer = (state:Recipe = initialState, {type, payload}:RecipeAction):Recipe => {
   switch(type) {
     case "UPDATE_RECIPE":
-      return {...state}
+      return payload as Recipe
     default:
       return state;
   };

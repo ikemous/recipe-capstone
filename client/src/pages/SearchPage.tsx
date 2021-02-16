@@ -9,9 +9,10 @@ import { updateRecipeList } from "../utils/actions";
 import RecipesList from "../components/RecipesList";
 
 function SearchPage() {
-    
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
     const dispatch = useDispatch();
     const recipeList = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
+    const recipe = useSelector(({recipe}:RootStateOrAny) => recipe);
 
     useEffect(() => {
         if(recipeList === undefined || recipeList.length === 0) {
@@ -23,16 +24,18 @@ function SearchPage() {
         }
     },[]);
 
+    const handleSet = () => setModalOpen(!modalOpen);
+
     return (
         <>  
             <TotallyCewlNavBar />
             <QueryForm />
             <Container>
                 <Row>
-                    <RecipesList />
+                    <RecipesList setModalOpen={handleSet} />
                 </Row>
-                <Modal>
-                    <ModalHeader></ModalHeader>
+                <Modal isOpen={modalOpen} toggle={handleSet}>
+                    <ModalHeader toggle={handleSet} className="text-center">{recipe.recipe.label}</ModalHeader>
                 </Modal>
             </Container>
         </>

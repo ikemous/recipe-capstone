@@ -14,21 +14,32 @@ import {
     Col
 } from "reactstrap";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import { updateRecipe } from "../utils/actions";
 
-function RecipesList() {
+interface Props {
+    setModalOpen: any;
+};
+
+const RecipesList:React.FC<Props> = ({setModalOpen}) => {
 
     const recipeList = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
+    const dispatch = useDispatch();
+
+    const handleRecipeClick = (recipeObject:Recipe) => {
+        dispatch(updateRecipe(recipeObject));
+        setModalOpen();
+    };
 
     return (
         <CardColumns>
             {
                 recipeList.map((recipeObject:Recipe) => {
                     const { label, image } = recipeObject.recipe;
-                    console.log(recipeObject.recipe);
+                    
                     return (
-                        <Card key={uuidv4()}>
-                            <CardImg top width="100%" src={image} />
-                            <CardTitle className="text-center" tag="h3">{ label }</CardTitle>
+                        <Card key={uuidv4()} onClick={() => handleRecipeClick(recipeObject)}>
+                            <CardImg top width="100%" src={image} alt={`View Of ${label}`}/>
+                            <CardTitle className="text-center" tag="h5">{ label }</CardTitle>
                         </Card>
                     );
                 })
