@@ -3,7 +3,7 @@ import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { updateRecipeList, updateSearch } from "../utils/actions";
 import { useHistory } from "react-router-dom"
-import { getSampleRecipes } from "../utils/API";
+import { getRecipesByIngredient, getSampleRecipes } from "../utils/API";
 
 function QueryForm() {
   const { search } = useSelector(({query}:RootStateOrAny) => query)
@@ -12,12 +12,24 @@ function QueryForm() {
 
   const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    getSampleRecipes()
-    .then(({data}) => {
-      dispatch(updateRecipeList(data.hits));
-    })
-    .catch(error => console.log(error));
-    history.push(`/search`);
+    if( search) {
+      getRecipesByIngredient(search)
+      .then(results => {
+        console.log(results);
+        dispatch(updateRecipeList(results.data));
+      })
+      .then(() => history.push("/search"))
+      .catch(error => console.log(error));
+    }
+    else {
+      getSampleRecipes()
+      .then(({data}) => {
+        dispatch(updateRecipeList(data));
+      })
+      .then(() => history.push(`/search`))
+      .catch(error => console.log(error));
+    }
+
   }
   
   return (
