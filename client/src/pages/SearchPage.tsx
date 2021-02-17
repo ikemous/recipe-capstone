@@ -16,7 +16,7 @@ import {
     UncontrolledAlert
 } from "reactstrap";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
-import { getSampleRecipes, getAnotherRecipePage } from "../utils/API";
+import { getSampleRecipes, getAnotherRecipePage, saveRecipe } from "../utils/API";
 import { Container } from "reactstrap";
 import { updateRecipeList } from "../utils/actions";
 import { AiFillHeart } from "react-icons/ai";
@@ -56,7 +56,9 @@ function SearchPage() {
 
     const handleModalHeartClick = () => {
         if(!currentUser) return alert("Must Be Logged In To Save Recipe");
-        
+        saveRecipe(recipe, currentUser.uid)
+        .then(result => console.log(result))
+        .catch(error => console.log(error));
     };
 
     return (

@@ -26,6 +26,11 @@ router.get("/recipes/:ingredient/:page", (req, res) => {
     .catch(error => res.json(error));
 });
 
+router.post("/save-recipe", (req, res) => {
+    console.log(req.body);
+    res.json(req.body);
+});
+
 router.get("/recipes", (req, res) => res.json(queryExample));
 
 module.exports = router;
