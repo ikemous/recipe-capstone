@@ -9,10 +9,12 @@ import {
     ModalFooter, 
     ModalHeader, 
     Pagination, 
+    PaginationItem, 
+    PaginationLink, 
     Row 
 } from "reactstrap";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
-import { getSampleRecipes } from "../utils/API";
+import { getSampleRecipes, getAnotherRecipePage } from "../utils/API";
 import { Container } from "reactstrap";
 import { updateRecipeList } from "../utils/actions";
 import { AiFillHeart } from "react-icons/ai"
@@ -28,14 +30,24 @@ function SearchPage() {
     useEffect(() => {
         if(recipeList.hits === undefined || recipeList.hits.length === 0) {
             getSampleRecipes()
-            .then(({data}) => {
-                dispatch(updateRecipeList(data));
-            })
+            .then(({data}) => dispatch(updateRecipeList(data)))
             .catch(error => console.log(error));
         }
     },[]);
 
     const handleSet = () => setModalOpen(!modalOpen);
+
+    const handleNext = () => {
+        getAnotherRecipePage({ ingredient: recipeList.q, page: recipeList.from + 10})
+        .then(({data}) => dispatch(updateRecipeList(data)))
+        .catch(error => console.log(error));
+    };
+
+    const handlePrev = () => {
+        getAnotherRecipePage({ ingredient: recipeList.q, page: recipeList.from - 10})
+        .then(({data}) => dispatch(updateRecipeList(data)))
+        .catch(error => console.log(error));
+    };
 
     return (
         <>  
@@ -46,7 +58,17 @@ function SearchPage() {
                     <RecipesList setModalOpen={handleSet} />
                 </Row>
                 <Row>
-                    <Pagination></Pagination>
+                    <Pagination>
+                        <PaginationItem disabled={recipeList.from === 0? true: false}>
+                            <PaginationLink 
+                                onClick={handlePrev} 
+                                previous 
+                            />
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink next onClick={handleNext}  />
+                        </PaginationItem>
+                    </Pagination>
                 </Row>
                 <Modal isOpen={modalOpen} toggle={handleSet}>
                     <ModalHeader toggle={handleSet} className="text-center">{recipe.recipe.label}</ModalHeader>
