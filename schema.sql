@@ -2,3 +2,4 @@
 DROP DATABASE IF EXISTS tempdb;
 -- Creates the "todolist" database --
 CREATE DATABASE tempdb;
+
