@@ -1,5 +1,11 @@
+const { STRING } = require("sequelize/types");
+
 module.exports = function(sequelize, DataTypes) {
     const Recipe = sequelize.define("Recipe", {
+        userId: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         label: {
            type: DataTypes.STRING,
            allowNull: false,
