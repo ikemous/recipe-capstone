@@ -15,7 +15,11 @@ export interface Recipe {
     }
 };
 
-export type RecipeList = Array<Recipe>
+export interface RecipeList {
+    from: number;
+    q: string;
+    hits: Array<Recipe>
+}
 
 export interface RecipeListAction {
     type: string;

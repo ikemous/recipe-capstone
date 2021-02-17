@@ -22,7 +22,7 @@ interface Props {
 
 const RecipesList:React.FC<Props> = ({setModalOpen}) => {
 
-    const recipeList = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
+    const {hits} = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
     const dispatch = useDispatch();
 
     const handleRecipeClick = (recipeObject:Recipe) => {
@@ -33,7 +33,7 @@ const RecipesList:React.FC<Props> = ({setModalOpen}) => {
     return (
         <CardColumns>
             {
-                recipeList.map((recipeObject:Recipe) => {
+                hits.map((recipeObject:Recipe) => {
                     const { label, image } = recipeObject.recipe;
                     
                     return (

@@ -1,6 +1,10 @@
 import { RecipeList, RecipeListAction } from "../types";
 
-const initialState:RecipeList = [];
+const initialState:RecipeList = {
+    from: 0,
+    q: "coffee",
+    hits: [],
+};
 
 const recipeListReducer = (state:RecipeList = initialState, { type, payload }:RecipeListAction):RecipeList => {
     switch(type) {
