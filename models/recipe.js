@@ -1,5 +1,3 @@
-const { STRING } = require("sequelize/types");
-
 module.exports = function(sequelize, DataTypes) {
     const Recipe = sequelize.define("Recipe", {
         userId: {

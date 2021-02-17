@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
 import QueryForm from "../components/QueryForm";
 import { 
+    Alert,
     Button, 
     Col, 
     Modal, 
@@ -11,7 +12,8 @@ import {
     Pagination, 
     PaginationItem, 
     PaginationLink, 
-    Row 
+    Row, 
+    UncontrolledAlert
 } from "reactstrap";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { getSampleRecipes, getAnotherRecipePage } from "../utils/API";
@@ -21,9 +23,11 @@ import { AiFillHeart } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
 import RecipesList from "../components/RecipesList";
 import FluidImage from "../components/FluidImage";
+import { useAuth } from "../utils/contexts/AuthContext";
 
 function SearchPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const { currentUser } = useAuth();
     const dispatch = useDispatch();
     const recipeList = useSelector(({ recipeList }:RootStateOrAny) => recipeList)
     const recipe = useSelector(({recipe}:RootStateOrAny) => recipe);
@@ -48,6 +52,11 @@ function SearchPage() {
         getAnotherRecipePage({ ingredient: recipeList.q, page: recipeList.from - 10})
         .then(({data}) => dispatch(updateRecipeList(data)))
         .catch(error => console.log(error));
+    };
+
+    const handleModalHeartClick = () => {
+        if(!currentUser) return alert("Must Be Logged In To Save Recipe");
+        
     };
 
     return (
@@ -97,7 +106,7 @@ function SearchPage() {
                             }
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
-                        <Button color="primary">
+                        <Button onClick={handleModalHeartClick} color="primary">
                             <AiFillHeart style={recipe.bookmarked?{color:"red"}:{color: "white"}} />
                         </Button>
                         <Button color="danger" onClick={handleSet}>Close</Button>
