@@ -17,7 +17,8 @@ import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { getSampleRecipes, getAnotherRecipePage } from "../utils/API";
 import { Container } from "reactstrap";
 import { updateRecipeList } from "../utils/actions";
-import { AiFillHeart } from "react-icons/ai"
+import { AiFillHeart } from "react-icons/ai";
+import { v4 as uuidv4 } from "uuid";
 import RecipesList from "../components/RecipesList";
 import FluidImage from "../components/FluidImage";
 
@@ -90,7 +91,7 @@ function SearchPage() {
                             {
                                 recipe.recipe.ingredients.map((ingredient:{text:string}) => {
                                     return (
-                                        <h6>{ingredient.text}</h6>
+                                        <h6 key={uuidv4()}>{ingredient.text}</h6>
                                     );
                                 })
                             }
