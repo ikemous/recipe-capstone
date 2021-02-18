@@ -10,6 +10,7 @@ import NonUserRoute from "./components/NonUserRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import SearchPage from "./pages/SearchPage";
+import SavedRecipesPage from "./pages/SavedRecipesPage";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <NonUserRoute path="/login" component={LoginPage} />
           <NonUserRoute path="/forgot-password" component={ForgotPasswordPage} />
           <PrivateRoute exact path="/profile" component={UserProfilePage} />
-          <PrivateRoute exact path="/saved-recipes" component={UserProfilePage} />
+          <PrivateRoute exact path="/saved-recipes" component={SavedRecipesPage} />
           <PrivateRoute exact path="/my-recipes" component={UserProfilePage} />
         </Switch>
       </AuthProvider>

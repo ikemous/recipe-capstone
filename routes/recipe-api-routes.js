@@ -53,6 +53,19 @@ router.post("/save-recipe", (req, res) => {
     .catch(error => res.json(error));
 });
 
+router.get("/user-recipes", (req, res) => {
+    db.Recipe.findAll({
+        where: {
+            userId: req.params.id,
+        }
+    })
+    .then(results => {
+        console.log(results);
+        res.json(resutls);
+    })
+    .catch(error => res.json(error));
+});
+
 router.delete("/delete-recipe", (req, res) => {
     // db.Recipe.delete
 });
