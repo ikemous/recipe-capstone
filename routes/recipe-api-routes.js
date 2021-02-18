@@ -53,6 +53,10 @@ router.post("/save-recipe", (req, res) => {
     .catch(error => res.json(error));
 });
 
+router.delete("/delete-recipe", (req, res) => {
+    // db.Recipe.delete
+});
+
 router.get("/recipes", (req, res) => res.json(queryExample));
 
 module.exports = router;
