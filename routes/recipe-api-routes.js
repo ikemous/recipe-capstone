@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const db = require("../models");
 const axios = require("axios");
 const queryExample = require("../queryExmaple.json");
 
@@ -27,8 +28,29 @@ router.get("/recipes/:ingredient/:page", (req, res) => {
 });
 
 router.post("/save-recipe", (req, res) => {
-    console.log(req.body);
-    res.json(req.body);
+    const {id, recipe} = req.body;
+
+    let recipeIngredients = "";
+
+    recipe.ingredients.forEach(ingredient => {
+        recipeIngredients += ingredient.text + ";";
+    });
+    
+    db.Recipe.create({
+        userId: id,
+        label: recipe.label,
+        calories: recipe.calories,
+        image: recipe.image,
+        totalTime: recipe.totalTime,
+        url: recipe.url,
+        yield: recipe.yield,
+        ingredients: recipeIngredients,
+    })
+    .then(results => {
+        console.log(results);
+        res.json(results);
+    })
+    .catch(error => res.json(error));
 });
 
 router.get("/recipes", (req, res) => res.json(queryExample));

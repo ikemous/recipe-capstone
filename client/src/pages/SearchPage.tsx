@@ -56,7 +56,8 @@ function SearchPage() {
 
     const handleModalHeartClick = () => {
         if(!currentUser) return alert("Must Be Logged In To Save Recipe");
-        saveRecipe(recipe, currentUser.uid)
+        console.log(recipe);
+        saveRecipe(recipe.recipe, currentUser.uid)
         .then(result => console.log(result))
         .catch(error => console.log(error));
     };
