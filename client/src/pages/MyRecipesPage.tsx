@@ -18,7 +18,8 @@ import {
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-
+    const { recipe } = useSelector(({recipe}:RootStateOrAny) => recipe);
+    const dispatch = useDispatch();
     const toggleModal = () => setModalOpen(!modalOpen);
 
     return (
@@ -34,6 +35,8 @@ function MyRecipesPage() {
                                 <Col xs={{offset: 1, size:10}}>
                                     <Label for="recipeName">Recipe Name</Label>
                                     <Input 
+                                        value={recipe.label}
+                                        onChange={() => console.log("click")}
                                         type="text" 
                                         name="recipeName" 
                                         placeholder="Recipe Name..."

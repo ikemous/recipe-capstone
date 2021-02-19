@@ -4,7 +4,7 @@ const initialState:Recipe = {
   bookmarked: false,
   recipe: {
     calories: 0,
-    image: "",
+    image: "https://via.placeholder.com/400",
     ingredients: [],
     totalTime: 0,
     yield: 0,
