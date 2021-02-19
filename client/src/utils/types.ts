@@ -6,8 +6,8 @@ export interface Recipe {
         image: string;
         ingredients: Array<{
             text: string;
-            image: string;
-            label: string;
+            image?: string;
+            weight?: string;
         }>;
         totalTime: number;
         yield: number;
@@ -28,7 +28,7 @@ export interface RecipeListAction {
 }
 export interface RecipeAction {
     type: string;
-    payload: string | number | Recipe;
+    payload: string | number | Recipe ;
 };
 
 export interface Query {

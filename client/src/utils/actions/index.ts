@@ -41,6 +41,14 @@ export const updateRecipeUrl = (website:string):RecipeAction => {
         payload: website,
     };
 };
+
+export const addRecipeIngredient = (ingredient: string): RecipeAction => {
+    return {
+        type: "ADD_RECIPE_INGREDIENT",
+        payload: ingredient
+    };
+};
+
 export const updateRecipeListHits = (hits:Array<Recipe>):RecipeListAction => {
     return {
         type: "UPDATE_RECIPE_LIST_HITS",

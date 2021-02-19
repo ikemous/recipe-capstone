@@ -16,10 +16,11 @@ import {
     Row 
 } from "reactstrap";
 import { ImPlus } from "react-icons/im";
-import { updateRecipe, updateRecipeLabel, updateRecipeUrl, updateRecipeYield } from "../utils/actions";
+import { addRecipeIngredient, updateRecipe, updateRecipeLabel, updateRecipeUrl, updateRecipeYield } from "../utils/actions";
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const [tempIngredient, setTempIngredient] = useState<string>("");
     const { recipe } = useSelector(({recipe}:RootStateOrAny) => recipe);
     const dispatch = useDispatch();
     const toggleModal = () => setModalOpen(!modalOpen);
@@ -47,6 +48,8 @@ function MyRecipesPage() {
         alert();
         setModalOpen(false);
     };
+
+    const handleAddingIngredient = () => dispatch(addRecipeIngredient(tempIngredient));
 
     return (
         <> 
@@ -94,6 +97,8 @@ function MyRecipesPage() {
                                 <Col xs={{offset: 1, size:9}}>
                                     <Label for="ingredient">Ingredient:</Label>
                                     <Input 
+                                        value={tempIngredient}
+                                        onChange={(event) => setTempIngredient(event.target.value)}
                                         type="text"
                                         name="ingredient"
                                         placeholder="1/4 cup of milk"
@@ -101,6 +106,7 @@ function MyRecipesPage() {
                                 </Col>
                                 <Col>
                                     <Button 
+                                        onClick={handleAddingIngredient}
                                         type="button" 
                                         style={{position: "absolute", bottom: 0, left: 0}}
                                     >
@@ -110,13 +116,7 @@ function MyRecipesPage() {
                             </FormGroup>
                         </Form>
                         {
-                            recipe.ingredients.map((ingredient: {text: string}) => {
-                                return (
-                                    <Row>
-                                        {ingredient.text}
-                                    </Row>
-                                );
-                            })
+                            recipe.ingredients.map((ingredient: {text: string}, index:number) => <h6 key={index}>{ingredient.text}</h6>)
                         }
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
@@ -124,7 +124,7 @@ function MyRecipesPage() {
                         <Button color="success">Create</Button>
                     </ModalFooter>
                 </Modal>
-                <Button onClick={toggleModal} style={{position: "absolute", bottom: 20}} className="col-8 offset-2" color="success">Add Recipe</Button>
+                <Button onClick={toggleModal} style={{position: "fixed", bottom: 20}} className="col-8 offset-2" color="success">Add Recipe</Button>
             </Container>
         </>
     );
