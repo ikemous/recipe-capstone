@@ -31,6 +31,10 @@ function TotallyCewlNavBar() {
             </NavItem>
 
             <NavItem>
+              <NavLink href="/search" active={pathname==="/search"?true:false}>Search</NavLink>
+            </NavItem>
+
+            <NavItem>
               <NavLink href="/about" active={pathname==="/about"?true:false}>About</NavLink>
             </NavItem>
 
