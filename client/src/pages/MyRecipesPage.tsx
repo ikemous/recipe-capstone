@@ -15,13 +15,18 @@ import {
     ModalHeader, 
     Row 
 } from "reactstrap";
-import { updateRecipeLabel } from "../utils/actions";
+import { updateRecipeLabel, updateRecipeYield } from "../utils/actions";
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
     const { recipe } = useSelector(({recipe}:RootStateOrAny) => recipe);
     const dispatch = useDispatch();
     const toggleModal = () => setModalOpen(!modalOpen);
+
+    const handleServingSizeChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+        if(parseInt(event.target.value)) dispatch(updateRecipeYield(parseInt(event.target.value)));
+        else if(event.target.value === "") dispatch(updateRecipeYield(0));
+    };
 
     return (
         <> 
@@ -48,6 +53,8 @@ function MyRecipesPage() {
                                 <Col xs={{offset: 1, size: 10}} md={{offset: 1, size: 3}}>
                                     <Label for="servingSize">Serving Size</Label>
                                     <Input
+                                        value={recipe.yield}
+                                        onChange={handleServingSizeChange}
                                         type="text"
                                         name="servingSize"
                                         placeholder="1"

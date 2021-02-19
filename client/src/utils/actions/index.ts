@@ -25,6 +25,13 @@ export const updateRecipeLabel = (label:string):RecipeAction => {
     return {
         type: "UPDATE_RECIPE_LABEL",
         payload: label,
+    };
+};
+
+export const updateRecipeYield = (servingSize:number):RecipeAction => {
+    return {
+        type: "UPDATE_RECIPE_YIELD",
+        payload: servingSize,
     }
 }
 

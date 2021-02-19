@@ -28,7 +28,7 @@ export interface RecipeListAction {
 }
 export interface RecipeAction {
     type: string;
-    payload: string | Recipe;
+    payload: string | number | Recipe;
 };
 
 export interface Query {
