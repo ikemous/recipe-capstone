@@ -1,7 +1,7 @@
 export interface Recipe {
     bookmarked?: boolean;
     recipe: {
-
+        id?: string;
         calories: number;
         image: string;
         ingredients: Array<{
