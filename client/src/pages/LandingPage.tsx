@@ -26,7 +26,7 @@ function LandingPage() {
       <Container fluid={true}>
         <Row className="item-section">
           <Col className="text-center" sm={12} md={4}>
-            <FluidImage />
+            <FluidImage src="/images/marie-dehayes-food.jpg" alt="cutting meat by henar langa" />
           </Col>
           <Col sm={12} md={8}>
             <Row>
@@ -49,7 +49,7 @@ function LandingPage() {
             </p>
           </Col>
           <Col className="text-center" xs={{ size: "auto", order: 1}} sm={{ size: "4", order: 2}}>
-            <FluidImage />
+            <FluidImage src="/images/henar-langa-food.jpg" alt="cutting meat by henar langa"/>
           </Col>
         </Row>
         <Row className="item-section">
