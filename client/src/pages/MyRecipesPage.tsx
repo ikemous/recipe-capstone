@@ -257,7 +257,7 @@ function MyRecipesPage() {
                         }
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
-                        <Button onClick={closeUpdateModal} color="danger">Cancel</Button>
+                        <Button onClick={closeUpdateModal} color="danger">Back</Button>
                         <Button onClick={handleCreateClick} color="success">Update</Button>
                     </ModalFooter>
                 </Modal>
