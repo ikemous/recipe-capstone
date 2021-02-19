@@ -1,4 +1,4 @@
-import React, { useState  } from "react";
+import React, { useState } from "react";
 import { 
   Navbar, 
   NavbarToggler, 
@@ -12,10 +12,12 @@ import {
 } from "reactstrap";
 import LogoutButton from "./LogoutButton";
 import { useAuth } from "../utils/contexts/AuthContext";
+import { useLocation } from "react-router-dom";
 
 function TotallyCewlNavBar() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const { currentUser } = useAuth();
+  const { pathname } = useLocation();
 
   return (
     <Navbar color="light" light expand="sm">
@@ -25,15 +27,15 @@ function TotallyCewlNavBar() {
         <Nav navbar>
 
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href="/" active={pathname==="/"?true:false}>Home</NavLink>
             </NavItem>
 
             <NavItem>
-              <NavLink href="/about">About</NavLink>
+              <NavLink href="/about" active={pathname==="/about"?true:false}>About</NavLink>
             </NavItem>
 
             <NavItem>
-              <NavLink href="/guide">Guide</NavLink>
+              <NavLink href="/guide" active={pathname==="/guide"?true:false}>Guide</NavLink>
             </NavItem>
 
             {currentUser &&
@@ -45,17 +47,12 @@ function TotallyCewlNavBar() {
                   <DropdownMenu right>
                     <DropdownItem>
                       <NavItem>
-                        <NavLink href="/profile">Profile</NavLink>
+                        <NavLink href="/saved-recipes" active={pathname==="/saved-recipes"?true:false}>Saved Recipes</NavLink>
                       </NavItem>
                     </DropdownItem>
                     <DropdownItem>
                       <NavItem>
-                        <NavLink href="/saved-recipes">Saved Recipes</NavLink>
-                      </NavItem>
-                    </DropdownItem>
-                    <DropdownItem>
-                      <NavItem>
-                        <NavLink href="/my-recipes">My Recipes</NavLink>
+                        <NavLink href="/my-recipes" active={pathname==="/my-recipes"?true:false}>My Recipes</NavLink>
                       </NavItem>
                     </DropdownItem>
                   </DropdownMenu>
@@ -70,10 +67,10 @@ function TotallyCewlNavBar() {
             {!currentUser&&
             <>
               <NavItem>
-                <NavLink href="/signup">Signup</NavLink>
+                <NavLink href="/signup" active={pathname==="/signup"?true:false}>Signup</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/login">Login</NavLink>
+                <NavLink href="/login" active={pathname==="/login"?true:false}>Login</NavLink>
               </NavItem>
             </>
             }

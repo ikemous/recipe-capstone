@@ -25,7 +25,7 @@ function App() {
           <NonUserRoute path="/signup" component={SignupPage} />
           <NonUserRoute path="/login" component={LoginPage} />
           <NonUserRoute path="/forgot-password" component={ForgotPasswordPage} />
-          <PrivateRoute exact path="/profile" component={UserProfilePage} />
+          {/* <PrivateRoute exact path="/profile" component={UserProfilePage} /> */}
           <PrivateRoute exact path="/saved-recipes" component={SavedRecipesPage} />
           <PrivateRoute exact path="/my-recipes" component={MyRecipesPage} />
         </Switch>
