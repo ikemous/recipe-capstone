@@ -23,7 +23,24 @@ function MyRecipesPage() {
     const [tempIngredient, setTempIngredient] = useState<string>("");
     const { recipe } = useSelector(({recipe}:RootStateOrAny) => recipe);
     const dispatch = useDispatch();
-    const toggleModal = () => setModalOpen(!modalOpen);
+    const toggleModal = () => {
+        setModalOpen(!modalOpen)
+        dispatch(
+            updateRecipe({  
+                bookmarked: false,
+                recipe: {
+                calories: 0,
+                image: "https://via.placeholder.com/400",
+                ingredients: [],
+                totalTime: 0,
+                yield: 0,
+                url: "",
+                label: "",
+                }
+            })
+        );
+        setTempIngredient("");
+    };
 
     const handleServingSizeChange = (event:React.ChangeEvent<HTMLInputElement>) => {
         if(parseInt(event.target.value)) dispatch(updateRecipeYield(parseInt(event.target.value)));
@@ -46,10 +63,16 @@ function MyRecipesPage() {
             })
         );
         alert();
+        setTempIngredient("");
         setModalOpen(false);
     };
 
-    const handleAddingIngredient = () => dispatch(addRecipeIngredient(tempIngredient));
+    const handleAddingIngredient = () => {
+        if(tempIngredient !== "" && tempIngredient !== undefined) {
+            dispatch(addRecipeIngredient(tempIngredient));
+            setTempIngredient("");
+        }
+    };
 
     return (
         <> 
@@ -68,6 +91,7 @@ function MyRecipesPage() {
                                         type="text" 
                                         name="recipeName" 
                                         placeholder="Recipe Name..."
+                                        autoComplete="off"
                                     />
                                 </Col>
                             </FormGroup>
@@ -80,6 +104,7 @@ function MyRecipesPage() {
                                         type="text"
                                         name="servingSize"
                                         placeholder="1"
+                                        autoComplete="off"
                                     />
                                 </Col>
                                 <Col xs={{offset: 1, size: 10}} md={6}>
@@ -90,6 +115,7 @@ function MyRecipesPage() {
                                         type="text"
                                         name="websiteLink"
                                         placeholder="www.recipewebsite.com"
+                                        autoComplete="off"
                                     />
                                 </Col>
                             </FormGroup>
@@ -102,6 +128,7 @@ function MyRecipesPage() {
                                         type="text"
                                         name="ingredient"
                                         placeholder="1/4 cup of milk"
+                                        autoComplete="off"
                                     />
                                 </Col>
                                 <Col>
@@ -116,7 +143,13 @@ function MyRecipesPage() {
                             </FormGroup>
                         </Form>
                         {
-                            recipe.ingredients.map((ingredient: {text: string}, index:number) => <h6 key={index}>{ingredient.text}</h6>)
+                            recipe.ingredients.map((ingredient: {text: string}, index:number) => {
+                                return (
+                                    <div key={index}>
+                                        <h6>{ingredient.text}</h6>
+                                    </div>
+                                )
+                            })
                         }
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
