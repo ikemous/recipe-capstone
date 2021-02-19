@@ -16,7 +16,8 @@ import {
     Row 
 } from "reactstrap";
 import { ImPlus } from "react-icons/im";
-import { addRecipeIngredient, updateRecipe, updateRecipeLabel, updateRecipeUrl, updateRecipeYield } from "../utils/actions";
+import { FaTrash } from "react-icons/fa";
+import { addRecipeIngredient, removeRecipeIngredient, updateRecipe, updateRecipeLabel, updateRecipeUrl, updateRecipeYield } from "../utils/actions";
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -73,6 +74,8 @@ function MyRecipesPage() {
             setTempIngredient("");
         }
     };
+
+    const handleDeleteIngredient = (index:number) => dispatch(removeRecipeIngredient(index));
 
     return (
         <> 
@@ -145,9 +148,14 @@ function MyRecipesPage() {
                         {
                             recipe.ingredients.map((ingredient: {text: string}, index:number) => {
                                 return (
-                                    <div key={index}>
-                                        <h6>{ingredient.text}</h6>
-                                    </div>
+                                    <Row style={{paddingBottom: 2}} key={index}>
+                                        <Col xs={10}>
+                                            <h6>{ingredient.text}</h6>
+                                        </Col>
+                                        <Col xs={2}>
+                                            <Button onClick={() => handleDeleteIngredient(index)}><FaTrash /></Button>
+                                        </Col>
+                                    </Row>
                                 )
                             })
                         }

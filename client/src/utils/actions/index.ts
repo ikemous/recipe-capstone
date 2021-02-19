@@ -49,6 +49,13 @@ export const addRecipeIngredient = (ingredient: string): RecipeAction => {
     };
 };
 
+export const removeRecipeIngredient = (index:number):RecipeAction => {
+    return {
+        type: "REMOVE_RECIPE_INGREDIENT",
+        payload: index,
+    }
+};
+
 export const updateRecipeListHits = (hits:Array<Recipe>):RecipeListAction => {
     return {
         type: "UPDATE_RECIPE_LIST_HITS",

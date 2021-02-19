@@ -25,10 +25,10 @@ const recipeReducer = (state:Recipe = initialState, {type, payload}:RecipeAction
       return {bookmarked: false, recipe: {...state.recipe, url: payload as string}};
     case "ADD_RECIPE_INGREDIENT":
       const newIngredientList = [...state.recipe.ingredients, {text: payload as string}];
-      console.log(newIngredientList);
       return {bookmarked: false, recipe: {...state.recipe, ingredients: newIngredientList}};
-    case "DELETE_RECIPE_INGREDIENT":
-      return {bookmarked: false, recipe: {...state.recipe}};
+    case "REMOVE_RECIPE_INGREDIENT":
+      state.recipe.ingredients.splice(payload as number, 1);
+      return {...state};
     default:
       return state;
   };
