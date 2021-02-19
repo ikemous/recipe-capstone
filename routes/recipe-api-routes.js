@@ -73,6 +73,11 @@ router.post("/create-recipe", (req, res) => {
         ingredients: recipeIngredients,
         userCreated: true,
     })
+    .then((results) => {
+        console.log(results);
+        res.json(results);
+    })
+    .catch(error => res.json(error));
 });
 
 router.get("/user-saved-recipes/:id", (req, res) => {
@@ -80,6 +85,27 @@ router.get("/user-saved-recipes/:id", (req, res) => {
         where: {
             userId: req.params.id,
             userCreated: false
+        }
+    })
+    .then(results => {
+        const recipeList = results;
+        recipeList.forEach((recipe) => {
+            console.log(recipe.ingredients);
+            recipe.ingredients = recipe.ingredients.split(";").map(item =>{
+                return {text: item}
+            });
+            console.log(recipe.ingredients);
+        });
+        res.json(recipeList);
+    })
+    .catch(error => res.json(error));
+});
+
+router.get("/user-created-recipes/:id", (req, res) => {
+    db.Recipe.findAll({
+        where: {
+            userId: req.params.id,
+            userCreated: true
         }
     })
     .then(results => {
