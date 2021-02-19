@@ -144,9 +144,7 @@ function MyRecipesPage() {
         createRecipe(recipe, currentUser.uid)
         .then(() => {
             getUserCreatedRecipes(currentUser.uid)
-            .then(({data}) => {
-                dispatch(updateRecipeListHits(data));
-            })
+            .then(({data}) => dispatch(updateRecipeListHits(data)))
             .catch(error => console.log(error));
             setTempIngredient("");
             setModalOpen(false);
