@@ -76,7 +76,7 @@ function SearchPage() {
             <TotallyCewlNavBar />
             <QueryForm />
             <Container>
-                <Row>
+                <Row style={{paddingTop: 10}}>
                     <RecipesList setModalOpen={handleSet} />
                 </Row>
                 <Row className="justify-content-center">
