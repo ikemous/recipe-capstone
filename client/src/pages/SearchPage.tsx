@@ -46,6 +46,11 @@ function SearchPage() {
         getAnotherRecipePage({ ingredient: recipeList.q, page: recipeList.from + 10})
         .then(({data}) => dispatch(updateRecipeList(data)))
         .catch(error => console.log(error));
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
     };
 
     const handlePrev = () => {
@@ -58,7 +63,11 @@ function SearchPage() {
         if(!currentUser) return alert("Must Be Logged In To Save Recipe");
         console.log(recipe);
         saveRecipe(recipe.recipe, currentUser.uid)
-        .then(result => console.log(result))
+        .then(result => {
+            console.log(result);
+            setModalOpen(false);
+            alert("Recipe Saved, go to saved-recipes page to view");
+        })
         .catch(error => console.log(error));
     };
 
@@ -70,16 +79,16 @@ function SearchPage() {
                 <Row>
                     <RecipesList setModalOpen={handleSet} />
                 </Row>
-                <Row>
+                <Row className="justify-content-center">
                     <Pagination>
                         <PaginationItem disabled={recipeList.from === 0? true: false}>
                             <PaginationLink 
                                 onClick={handlePrev} 
                                 previous 
-                            />
+                            >Previous Page</PaginationLink>
                         </PaginationItem>
                         <PaginationItem>
-                            <PaginationLink next onClick={handleNext}  />
+                            <PaginationLink next onClick={handleNext}>Next Page</PaginationLink>
                         </PaginationItem>
                     </Pagination>
                 </Row>

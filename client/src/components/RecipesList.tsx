@@ -31,13 +31,13 @@ const RecipesList:React.FC<Props> = ({setModalOpen}) => {
     };
 
     return (
-        <Row>
+        <Row style={{marginRight: 0, marginLeft: 0}}>
             {
                 hits.map((recipeObject:Recipe) => {
                     const { label, image } = recipeObject.recipe;
                     
                     return (
-                        <Col  key={uuidv4()} style={{marginRight: 0, marginLeft: 0, padding:25}} xs={12} md={4}>
+                        <Col key={uuidv4()} style={{padding: 10}} xs={12} md={4}>
                             <Card onClick={() => handleRecipeClick(recipeObject)}>
                                 <CardImg top width="100%" src={image} alt={`View Of ${label}`}/>
                                 <CardTitle className="text-center" tag="h5">{ label }</CardTitle>
