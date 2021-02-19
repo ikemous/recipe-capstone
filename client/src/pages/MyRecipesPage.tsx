@@ -140,6 +140,7 @@ function MyRecipesPage() {
     const handleDeleteIngredient = (index:number) => dispatch(removeRecipeIngredient(index));
 
     const handleCreateClick = () => {
+        console.log(recipe);
         createRecipe(recipe, currentUser.uid)
         .then(() => {
             getUserCreatedRecipes(currentUser.uid)
@@ -156,7 +157,13 @@ function MyRecipesPage() {
     const handleUpdate = (id:number) => {
         updateUserRecipe(recipe, id)
         .then((results) => {
-            console.log(results);
+            getUserCreatedRecipes(currentUser.uid)
+            .then(({data}) => {
+                dispatch(updateRecipeListHits(data));
+            })
+            .catch(error => console.log(error));
+            setTempIngredient("");
+            setUpdateModalOpen(false);
         })
         .catch(error => console.log(error));
     };
@@ -250,14 +257,13 @@ function MyRecipesPage() {
                         {
                             recipe.ingredients.map((ingredient: {text: string}, index:number) => {
                                 if(ingredient.text === "") return;
-
                                 return (
                                     <Row style={{paddingBottom: 2}} key={index}>
                                         <Col xs={10}>
                                             <h6>{ingredient.text}</h6>
                                         </Col>
                                         <Col xs={2}>
-                                            <Button onClick={() => handleDeleteIngredient(index)}><FaTrash /></Button>
+                                            <Button style={{position: "absolute", left: 0}} onClick={() => handleDeleteIngredient(index)}><FaTrash /></Button>
                                         </Col>
                                     </Row>
                                 );

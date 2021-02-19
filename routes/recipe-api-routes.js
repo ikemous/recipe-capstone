@@ -7,7 +7,6 @@ router.get("/recipes/:ingredient", (req, res) => {
     const { ingredient } = req.params
     axios.get(`https://api.edamam.com/search?q=${ingredient}&app_id=${process.env.EDMAM_API_ID}&app_key=${process.env.EDMAM_API_KEY}`)
     .then(results => {
-        console.log(results);
         res.json(results.data);
     })
     .catch(error => {
@@ -16,7 +15,6 @@ router.get("/recipes/:ingredient", (req, res) => {
 });
 
 router.get("/recipes/:ingredient/:page", (req, res) => {
-    console.log(req.params);
     const { ingredient, page } = req.params;
     const start = parseInt(page);
     const end = start + 10;
@@ -47,7 +45,6 @@ router.post("/save-recipe", (req, res) => {
         ingredients: recipeIngredients,
     })
     .then(results => {
-        console.log(results);
         res.json(results);
     })
     .catch(error => res.json(error));
@@ -58,9 +55,10 @@ router.post("/create-recipe", (req, res) => {
 
     let recipeIngredients = "";
 
-    recipe.ingredients.forEach(ingredient => {
-        recipeIngredients =+ ingredient.text + ";";
+    recipe.ingredients.forEach(ingredient => {E
+        recipeIngredients += ingredient.text + ";";
     });
+
 
     db.Recipe.create({
         userId: id,
@@ -74,7 +72,6 @@ router.post("/create-recipe", (req, res) => {
         userCreated: true,
     })
     .then((results) => {
-        console.log(results);
         res.json(results);
     })
     .catch(error => res.json(error));
@@ -90,11 +87,9 @@ router.get("/user-saved-recipes/:id", (req, res) => {
     .then(results => {
         const recipeList = results;
         recipeList.forEach((recipe) => {
-            console.log(recipe.ingredients);
             recipe.ingredients = recipe.ingredients.split(";").map(item =>{
                 return {text: item}
             });
-            console.log(recipe.ingredients);
         });
         res.json(recipeList);
     })
@@ -111,11 +106,9 @@ router.get("/user-created-recipes/:id", (req, res) => {
     .then(results => {
         const recipeList = results;
         recipeList.forEach((recipe) => {
-            console.log(recipe.ingredients);
             recipe.ingredients = recipe.ingredients.split(";").map(item =>{
                 return {text: item}
             });
-            console.log(recipe.ingredients);
         });
         res.json(recipeList);
     })
