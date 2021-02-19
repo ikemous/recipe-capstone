@@ -132,6 +132,35 @@ router.delete("/delete-recipe/:id", (req, res) => {
     .catch(error => res.json(error));
 });
 
+router.put("/update-recipe/:id", (req, res) => {
+    const { ingredients } = req.body; 
+
+    let recipeIngredients = "";
+    ingredients.forEach(ingredient => {
+        recipeIngredients =+ ingredient.text + ";";
+    });
+
+    const recipe = {
+        userId: req.body.userId,
+        label: req.body.label,
+        calories: req.body.calories,
+        image: req.body.image,
+        totalTime: req.body.totalTime,
+        url: req.body.url,
+        tield: req.body.yield,
+        ingredients: recipeIngredients,
+        userCreated: true,
+    }
+
+    db.Recipe.update(recipe, {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(results => res.json(results))
+    .catch(error => res.json(error));
+});
+
 router.get("/recipes", (req, res) => res.json(queryExample));
 
 module.exports = router;

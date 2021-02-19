@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
-import { createRecipe, getUserCreatedRecipes } from "../utils/API";
+import { createRecipe, getUserCreatedRecipes, updateUserRecipe } from "../utils/API";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
 import { 
     Button, 
@@ -153,6 +153,14 @@ function MyRecipesPage() {
         .catch(error => console.log(error));
     };
 
+    const handleUpdate = (id:number) => {
+        updateUserRecipe(recipe, id)
+        .then((results) => {
+            console.log(results);
+        })
+        .catch(error => console.log(error));
+    };
+    
     return (
         <> 
             <TotallyCewlNavBar />
@@ -258,7 +266,7 @@ function MyRecipesPage() {
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
                         <Button onClick={closeUpdateModal} color="danger">Back</Button>
-                        <Button onClick={handleCreateClick} color="success">Update</Button>
+                        <Button onClick={() => handleUpdate(recipe.id)} color="success">Update</Button>
                     </ModalFooter>
                 </Modal>
 

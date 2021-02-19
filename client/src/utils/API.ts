@@ -17,4 +17,6 @@ export const createRecipe = (recipe:Recipe, userId: string) => axios.post("/crea
 
 export const deleteRecipe = (recipeId:number) => axios.delete(`/delete-recipe/${recipeId}`);
 
+export const updateUserRecipe = (recipe:Recipe, id:number) => axios.put(`/update-recipe/${id}`, recipe);
+
 export {};
