@@ -53,10 +53,33 @@ router.post("/save-recipe", (req, res) => {
     .catch(error => res.json(error));
 });
 
-router.get("/user-recipes/:id", (req, res) => {
+router.post("/create-recipe", (req, res) => {
+    const { id, recipe } = req.body;
+
+    let recipeIngredients = "";
+
+    recipe.ingredients.forEach(ingredient => {
+        recipeIngredients =+ ingredient.text + ";";
+    });
+
+    db.Recipe.create({
+        userId: id,
+        label: recipe.label,
+        calories: recipe.calories,
+        image: recipe.image,
+        totalTime: recipe.totalTime,
+        url: recipe.url,
+        yield: recipe.yield,
+        ingredients: recipeIngredients,
+        userCreated: true,
+    })
+});
+
+router.get("/user-saved-recipes/:id", (req, res) => {
     db.Recipe.findAll({
         where: {
             userId: req.params.id,
+            userCreated: false
         }
     })
     .then(results => {

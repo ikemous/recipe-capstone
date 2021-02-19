@@ -7,7 +7,7 @@ export const getAnotherRecipePage = ({ ingredient, page }: { ingredient:string, 
 
 export const getSampleRecipes = () => axios.get("/recipes");    
 
-export const getUserRecipes = (userId: string) => axios.get(`/user-recipes/${userId}`);
+export const getUserRecipes = (userId: string) => axios.get(`/user-saved-recipes/${userId}`);
 
 export const saveRecipe = (recipe:Recipe, userId: string) => axios.post("/save-recipe", {recipe, id: userId});
 

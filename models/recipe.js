@@ -31,6 +31,10 @@ module.exports = function(sequelize, DataTypes) {
         ingredients: {
             type: DataTypes.STRING,
             defaultValue: ""
+        },
+        userCreated: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     });
     return Recipe;
