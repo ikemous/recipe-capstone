@@ -16,7 +16,17 @@ const initialState:Recipe = {
 const recipeReducer = (state:Recipe = initialState, {type, payload}:RecipeAction):Recipe => {
   switch(type) {
     case "UPDATE_RECIPE":
-      return payload as Recipe
+      return payload as Recipe;
+    case "UPDATE_RECIPE_LABEL":
+      return {bookmarked: false, recipe: {...state.recipe}};
+    case "UPDATE_RECIPE_YIELD":
+      return {bookmarked: false, recipe: {...state.recipe}};
+    case "UPDATE_RECIPE_URL":
+      return {bookmarked: false, recipe: {...state.recipe}};
+    case "ADD_RECIPE_INGREDIENT":
+      return {bookmarked: false, recipe: {...state.recipe}};
+    case "DELETE_RECIPE_INGREDIENT":
+      return {bookmarked: false, recipe: {...state.recipe}};
     default:
       return state;
   };
