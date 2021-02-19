@@ -71,9 +71,7 @@ router.post("/create-recipe", (req, res) => {
         ingredients: recipeIngredients,
         userCreated: true,
     })
-    .then((results) => {
-        res.json(results);
-    })
+    .then((results) => res.json(results))
     .catch(error => res.json(error));
 });
 
