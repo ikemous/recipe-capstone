@@ -15,7 +15,7 @@ import {
     ModalHeader, 
     Row 
 } from "reactstrap";
-import { updateRecipeLabel, updateRecipeYield } from "../utils/actions";
+import { updateRecipe, updateRecipeLabel, updateRecipeYield } from "../utils/actions";
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -26,6 +26,25 @@ function MyRecipesPage() {
     const handleServingSizeChange = (event:React.ChangeEvent<HTMLInputElement>) => {
         if(parseInt(event.target.value)) dispatch(updateRecipeYield(parseInt(event.target.value)));
         else if(event.target.value === "") dispatch(updateRecipeYield(0));
+    };
+
+    const handleCancel = () => {
+        dispatch(
+            updateRecipe({  
+                bookmarked: false,
+                recipe: {
+                calories: 0,
+                image: "https://via.placeholder.com/400",
+                ingredients: [],
+                totalTime: 0,
+                yield: 0,
+                url: "",
+                label: "",
+                }
+            })
+        );
+        alert();
+        setModalOpen(false);
     };
 
     return (
@@ -72,7 +91,7 @@ function MyRecipesPage() {
                         </Form>
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
-                        <Button color="danger">Cancel</Button>
+                        <Button onClick={handleCancel} color="danger">Cancel</Button>
                         <Button color="success">Create</Button>
                     </ModalFooter>
                 </Modal>
