@@ -20,3 +20,10 @@ export const updateRecipe = (recipe: Recipe):RecipeAction => {
         payload: recipe,
     };
 }
+
+export const updateRecipeListHits = (hits:Array<Recipe>):RecipeListAction => {
+    return {
+        type: "UPDATE_RECIPE_LIST_HITS",
+        payload: hits,
+    };
+};

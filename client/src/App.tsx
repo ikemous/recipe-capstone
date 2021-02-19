@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
+import { getUserRecipes } from "./utils/API";
 import LandingPage from "./pages/LandingPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { AuthProvider } from './utils/contexts/AuthContext';
+import { AuthProvider, useAuth } from './utils/contexts/AuthContext';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from "./components/PrivateRoute";
@@ -13,6 +14,7 @@ import SearchPage from "./pages/SearchPage";
 import SavedRecipesPage from "./pages/SavedRecipesPage";
 
 function App() {
+
   return (
     <Router>
       <AuthProvider>

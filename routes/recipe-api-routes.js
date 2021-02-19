@@ -53,15 +53,20 @@ router.post("/save-recipe", (req, res) => {
     .catch(error => res.json(error));
 });
 
-router.get("/user-recipes", (req, res) => {
+router.get("/user-recipes/:id", (req, res) => {
     db.Recipe.findAll({
         where: {
             userId: req.params.id,
         }
     })
     .then(results => {
-        console.log(results);
-        res.json(resutls);
+        const recipeList = results;
+        recipeList.forEach((recipe) => {
+            console.log(recipe.ingredients);
+            recipe.ingredients = recipe.ingredients.split(";");
+            console.log(recipe.ingredients);
+        });
+        res.json(recipeList);
     })
     .catch(error => res.json(error));
 });

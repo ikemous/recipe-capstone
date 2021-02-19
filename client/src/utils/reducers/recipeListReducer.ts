@@ -1,4 +1,4 @@
-import { RecipeList, RecipeListAction } from "../types";
+import { RecipeList, RecipeListAction, Recipe } from "../types";
 
 const initialState:RecipeList = {
     from: 0,
@@ -10,6 +10,8 @@ const recipeListReducer = (state:RecipeList = initialState, { type, payload }:Re
     switch(type) {
         case "UPDATE_RECIPE_LIST":
             return payload as RecipeList;
+        case "UPDATE_RECIPE_LIST_HITS":
+            return {...state, hits: payload as Array<Recipe> };
         default: 
             return state;
     };
