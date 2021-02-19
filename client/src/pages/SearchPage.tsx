@@ -85,9 +85,7 @@ function SearchPage() {
                 </Row>
                 <Modal isOpen={modalOpen} toggle={handleSet}>
                     <ModalHeader toggle={handleSet} className="text-center">{recipe.recipe.label}</ModalHeader>
-                    <ModalBody>
-                        <FluidImage src={recipe.recipe.image} alt={`View Of ${recipe.recipe.label}`}/>
-                    </ModalBody>
+                    <FluidImage src={recipe.recipe.image} alt={`View Of ${recipe.recipe.label}`}/>
                     <ModalBody>
                         <Row>
                             <Col>

@@ -63,7 +63,9 @@ router.get("/user-recipes/:id", (req, res) => {
         const recipeList = results;
         recipeList.forEach((recipe) => {
             console.log(recipe.ingredients);
-            recipe.ingredients = recipe.ingredients.split(";");
+            recipe.ingredients = recipe.ingredients.split(";").map(item =>{
+                return {text: item}
+            });
             console.log(recipe.ingredients);
         });
         res.json(recipeList);
