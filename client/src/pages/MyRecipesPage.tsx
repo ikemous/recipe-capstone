@@ -176,7 +176,7 @@ function MyRecipesPage() {
 
 
                 <Modal isOpen={updateModalOpen} toggle={closeUpdateModal}>
-                    <ModalHeader toggle={closeUpdateModal}>Update Recipe</ModalHeader>
+                    <ModalHeader toggle={closeUpdateModal}>View Recipe</ModalHeader>
                     <ModalBody>
                         <Form>
                             <FormGroup row>
