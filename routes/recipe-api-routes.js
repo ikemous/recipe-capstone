@@ -73,8 +73,14 @@ router.get("/user-recipes/:id", (req, res) => {
     .catch(error => res.json(error));
 });
 
-router.delete("/delete-recipe", (req, res) => {
-    // db.Recipe.delete
+router.delete("/delete-recipe/:id", (req, res) => {
+    db.Recipe.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(results => res.json(results))
+    .catch(error => res.json(error));
 });
 
 router.get("/recipes", (req, res) => res.json(queryExample));

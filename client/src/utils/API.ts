@@ -11,4 +11,5 @@ export const getUserRecipes = (userId: string) => axios.get(`/user-recipes/${use
 
 export const saveRecipe = (recipe:Recipe, userId: string) => axios.post("/save-recipe", {recipe, id: userId});
 
+export const deleteRecipe = (recipeId:number) => axios.delete(`/delete-recipe/${recipeId}`);
 export {};
