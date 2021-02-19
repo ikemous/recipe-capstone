@@ -32,9 +32,15 @@ export const updateRecipeYield = (servingSize:number):RecipeAction => {
     return {
         type: "UPDATE_RECIPE_YIELD",
         payload: servingSize,
-    }
-}
+    };
+};
 
+export const updateRecipeUrl = (website:string):RecipeAction => {
+    return {
+        type: "UPDATE_RECIPE_URL",
+        payload: website,
+    };
+};
 export const updateRecipeListHits = (hits:Array<Recipe>):RecipeListAction => {
     return {
         type: "UPDATE_RECIPE_LIST_HITS",

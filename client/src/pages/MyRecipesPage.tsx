@@ -15,7 +15,8 @@ import {
     ModalHeader, 
     Row 
 } from "reactstrap";
-import { updateRecipe, updateRecipeLabel, updateRecipeYield } from "../utils/actions";
+import { ImPlus } from "react-icons/im";
+import { updateRecipe, updateRecipeLabel, updateRecipeUrl, updateRecipeYield } from "../utils/actions";
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -56,7 +57,6 @@ function MyRecipesPage() {
                     <ModalBody>
                         <Form>
                             <FormGroup row>
-                                
                                 <Col xs={{offset: 1, size:10}}>
                                     <Label for="recipeName">Recipe Name</Label>
                                     <Input 
@@ -79,16 +79,45 @@ function MyRecipesPage() {
                                         placeholder="1"
                                     />
                                 </Col>
-                                <Col xs={{offset: 1, size: 10}} md={7}>
+                                <Col xs={{offset: 1, size: 10}} md={6}>
                                     <Label for="websiteLink">Website (optional)</Label>
                                     <Input
+                                        value={recipe.url}
+                                        onChange={(event) => dispatch(updateRecipeUrl(event.target.value))}
                                         type="text"
                                         name="websiteLink"
                                         placeholder="www.recipewebsite.com"
                                     />
                                 </Col>
                             </FormGroup>
+                            <FormGroup row>
+                                <Col xs={{offset: 1, size:9}}>
+                                    <Label for="ingredient">Ingredient:</Label>
+                                    <Input 
+                                        type="text"
+                                        name="ingredient"
+                                        placeholder="1/4 cup of milk"
+                                    />
+                                </Col>
+                                <Col>
+                                    <Button 
+                                        type="button" 
+                                        style={{position: "absolute", bottom: 0, left: 0}}
+                                    >
+                                        <ImPlus />
+                                    </Button>
+                                </Col>
+                            </FormGroup>
                         </Form>
+                        {
+                            recipe.ingredients.map((ingredient: {text: string}) => {
+                                return (
+                                    <Row>
+                                        {ingredient.text}
+                                    </Row>
+                                );
+                            })
+                        }
                     </ModalBody>
                     <ModalFooter className="justify-content-between">
                         <Button onClick={handleCancel} color="danger">Cancel</Button>

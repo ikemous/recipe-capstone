@@ -4,7 +4,6 @@ import { deleteRecipe, getUserRecipes } from "../utils/API";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { useAuth } from "../utils/contexts/AuthContext";
 import { updateRecipe, updateRecipeListHits } from "../utils/actions";
-import { Recipe } from "../utils/types";
 import { Col, Row, Card, CardImg, CardTitle, Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import FluidImage from "../components/FluidImage";
 import { v4 as uuidv4 } from "uuid";

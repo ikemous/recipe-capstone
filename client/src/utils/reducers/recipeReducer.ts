@@ -22,7 +22,7 @@ const recipeReducer = (state:Recipe = initialState, {type, payload}:RecipeAction
     case "UPDATE_RECIPE_YIELD":
       return {bookmarked: false, recipe: {...state.recipe, yield: payload as number}};
     case "UPDATE_RECIPE_URL":
-      return {bookmarked: false, recipe: {...state.recipe}};
+      return {bookmarked: false, recipe: {...state.recipe, url: payload as string}};
     case "ADD_RECIPE_INGREDIENT":
       return {bookmarked: false, recipe: {...state.recipe}};
     case "DELETE_RECIPE_INGREDIENT":
