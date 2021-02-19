@@ -21,6 +21,13 @@ export const updateRecipe = (recipe: Recipe):RecipeAction => {
     };
 }
 
+export const updateRecipeLabel = (label:string):RecipeAction => {
+    return {
+        type: "UPDATE_RECIPE_LABEL",
+        payload: label,
+    }
+}
+
 export const updateRecipeListHits = (hits:Array<Recipe>):RecipeListAction => {
     return {
         type: "UPDATE_RECIPE_LIST_HITS",

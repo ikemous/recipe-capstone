@@ -15,6 +15,7 @@ import {
     ModalHeader, 
     Row 
 } from "reactstrap";
+import { updateRecipeLabel } from "../utils/actions";
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -36,7 +37,7 @@ function MyRecipesPage() {
                                     <Label for="recipeName">Recipe Name</Label>
                                     <Input 
                                         value={recipe.label}
-                                        onChange={() => console.log("click")}
+                                        onChange={(event) => dispatch(updateRecipeLabel(event.target.value))}
                                         type="text" 
                                         name="recipeName" 
                                         placeholder="Recipe Name..."
