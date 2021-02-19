@@ -50,10 +50,7 @@ function MyRecipesPage() {
 
     useEffect(() => {
         getUserCreatedRecipes(currentUser.uid)
-        .then(({data}) => {
-            console.log(data);
-            dispatch(updateRecipeListHits(data));
-        })
+        .then(({data}) => dispatch(updateRecipeListHits(data)))
         .catch(error => console.log(error));
     },[]);
 
@@ -143,9 +140,11 @@ function MyRecipesPage() {
         console.log(recipe);
         createRecipe(recipe, currentUser.uid)
         .then(() => {
+
             getUserCreatedRecipes(currentUser.uid)
             .then(({data}) => dispatch(updateRecipeListHits(data)))
             .catch(error => console.log(error));
+
             setTempIngredient("");
             setModalOpen(false);
         })
@@ -155,11 +154,11 @@ function MyRecipesPage() {
     const handleUpdate = (id:number) => {
         updateUserRecipe(recipe, id)
         .then((results) => {
+
             getUserCreatedRecipes(currentUser.uid)
-            .then(({data}) => {
-                dispatch(updateRecipeListHits(data));
-            })
+            .then(({data}) => dispatch(updateRecipeListHits(data)))
             .catch(error => console.log(error));
+
             setTempIngredient("");
             setUpdateModalOpen(false);
         })
@@ -256,7 +255,7 @@ function MyRecipesPage() {
                             recipe.ingredients.map((ingredient: {text: string}, index:number) => {
                                 if(ingredient.text === "") return;
                                 return (
-                                    <Row style={{paddingBottom: 2}} key={index}>
+                                    <Row style={{paddingBottom: 15}} key={index}>
                                         <Col xs={10}>
                                             <h6>{ingredient.text}</h6>
                                         </Col>

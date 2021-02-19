@@ -55,7 +55,7 @@ router.post("/create-recipe", (req, res) => {
 
     let recipeIngredients = "";
 
-    recipe.ingredients.forEach(ingredient => {E
+    recipe.ingredients.forEach(ingredient => {
         recipeIngredients += ingredient.text + ";";
     });
 
@@ -128,7 +128,7 @@ router.put("/update-recipe/:id", (req, res) => {
 
     let recipeIngredients = "";
     ingredients.forEach(ingredient => {
-        recipeIngredients =+ ingredient.text + ";";
+        recipeIngredients += ingredient.text + ";";
     });
 
     const recipe = {
