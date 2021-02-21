@@ -37,7 +37,7 @@ function MyRecipesPage() {
         getUserCreatedRecipes(currentUser.uid)
         .then(({data}) => dispatch(updateRecipeListHits(data)))
         .catch(error => console.log(error));
-    },[]);
+    });
 
     const toggleModal = () => {
         setModalOpen(!modalOpen)

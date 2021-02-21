@@ -36,7 +36,7 @@ function SearchPage() {
             .then(({data}) => dispatch(updateRecipeList(data)))
             .catch(error => console.log(error));
         }
-    },[]);
+    });
 
     const handleSet = () => setModalOpen(!modalOpen);
 

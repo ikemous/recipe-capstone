@@ -23,7 +23,7 @@ function SavedRecipesPage() {
         })
         .then(() => setLoading(false))
         .catch(error => console.log(error));
-    }, []);
+    });
 
     const handleCardClick = (savedRecipe:any) => {
         dispatch(updateRecipe({ bookmarked: true, recipe: savedRecipe}));
