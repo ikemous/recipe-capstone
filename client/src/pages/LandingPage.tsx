@@ -2,6 +2,7 @@ import React from "react";
 import QueryForm from "../components/QueryForm";
 import FluidImage from "../components/FluidImage";
 import { Col, Container, Row, } from "reactstrap";
+import { Link } from "react-router-dom";
 import "./landingPage.css";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
 
@@ -45,7 +46,7 @@ function LandingPage() {
             <h2 className="text-center">Save Favourites!</h2>
             <p className="col text-center">
               Found something you like but not hungry yet? Click the heart and save it for later!
-              You'll need to be logged in. Not Logged in? Create and account!
+              You'll need to be logged in. <Link to="/login">Login Here</Link>
             </p>
           </Col>
           <Col className="text-center" xs={{ size: "auto", order: 1}} sm={{ size: "4", order: 2}}>
@@ -60,7 +61,7 @@ function LandingPage() {
             <h2 className="text-center">Save Your Own Recipes!</h2>
             <p className="col text-center">
               Know of some recipes but dont want to write them on paper? Create your recipe and save it for later!
-              You'll need to be logged in. Not Logged in? Create and account!
+              You'll need to be logged in. <Link to="/login">Login Here</Link>
             </p>
           </Col>
         </Row>
