@@ -3,8 +3,8 @@ import QueryForm from "../components/QueryForm";
 import FluidImage from "../components/FluidImage";
 import { Col, Container, Row, } from "reactstrap";
 import { Link } from "react-router-dom";
-import "./landingPage.css";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
+import "./landingPage.css";
 
 function LandingPage() {
   return (

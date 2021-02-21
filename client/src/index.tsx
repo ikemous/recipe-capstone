@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
@@ -12,7 +11,7 @@ const store = createStore(allReducers, composeWithDevTools());
 
 ReactDOM.render(
   <Provider store={store}>
-    {/* <App /> */}
+    <App />
   </Provider>,
   document.getElementById('root')
 );
