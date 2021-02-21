@@ -238,8 +238,9 @@ function MyRecipesPage() {
                         </Form>
                         {
                             recipe.ingredients.map(function (ingredient: { text: string; }, index: number) {
-                                if (ingredient.text === "")
+                                if (ingredient.text === "") {
                                     return <></>;
+                                }
                                 return (
                                     <Row style={{ paddingBottom: 15 }} key={index}>
                                         <Col xs={10}>
