@@ -11,6 +11,7 @@ import AboutPage from "./pages/AboutPage";
 import SearchPage from "./pages/SearchPage";
 import SavedRecipesPage from "./pages/SavedRecipesPage";
 import MyRecipesPage from './pages/MyRecipesPage';
+import GuidePage from "./pages/GuidePage";
 import "./app.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/search" component={SearchPage} />
           <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/guide" component={GuidePage} />
           <NonUserRoute path="/signup" component={SignupPage} />
           <NonUserRoute path="/login" component={LoginPage} />
           <NonUserRoute path="/forgot-password" component={ForgotPasswordPage} />

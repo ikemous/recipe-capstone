@@ -1,10 +1,10 @@
-import Recat from "react";
+import React from "react";
 import PageContainer from "../components/PageContainer";
 
 function GuidePage() {
     return (
         <PageContainer>
-            
+
         </PageContainer>
     )
 };
