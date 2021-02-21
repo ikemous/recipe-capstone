@@ -9,7 +9,8 @@ html, body, .dropdown-menu {
 .dropdown-item:hover {
     background-color: #E27D60!important;
 }
-.modal-content {
+
+.modal-content, .card {
     background: #E27D60!important;
 }
 
