@@ -10,6 +10,7 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import SearchPage from "./pages/SearchPage";
 import SavedRecipesPage from "./pages/SavedRecipesPage";
 import MyRecipesPage from './pages/MyRecipesPage';
+import "./app.css";
 
 function App() {
 

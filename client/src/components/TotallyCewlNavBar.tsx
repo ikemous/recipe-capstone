@@ -20,7 +20,7 @@ function TotallyCewlNavBar() {
   const { pathname } = useLocation();
 
   return (
-    <Navbar color="light" light expand="sm">
+    <Navbar light expand="sm">
       <NavbarBrand href="/">uCook!</NavbarBrand>
       <NavbarToggler onClick={() => setNavOpen(!navOpen)}/>
       <Collapse className="justify-content-end" isOpen={navOpen} navbar>
