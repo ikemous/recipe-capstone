@@ -5,12 +5,7 @@ import {
     Row, 
     Card, 
     CardImg, 
-    CardBody, 
-    CardTitle, 
-    CardText, 
-    Button, 
-    CardSubtitle,
-    CardColumns,
+    CardTitle,
     Col
 } from "reactstrap";
 import { useSelector, useDispatch, RootStateOrAny } from "react-redux";

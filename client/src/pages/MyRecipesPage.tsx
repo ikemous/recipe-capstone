@@ -21,23 +21,8 @@ import {
 } from "reactstrap";
 import { ImPlus } from "react-icons/im";
 import { FaTrash } from "react-icons/fa";
-import { addRecipeIngredient, removeRecipeIngredient, updateRecipe, updateRecipeLabel, updateRecipeList, updateRecipeListHits, updateRecipeUrl, updateRecipeYield } from "../utils/actions";
+import { addRecipeIngredient, removeRecipeIngredient, updateRecipe, updateRecipeLabel, updateRecipeListHits, updateRecipeUrl, updateRecipeYield } from "../utils/actions";
 import { useAuth } from "../utils/contexts/AuthContext";
-import { Recipe } from "../utils/types";
-
-
-const emptyRecipe = {  
-    bookmarked: false,
-    recipe: {
-    calories: 0,
-    image: "https://via.placeholder.com/400",
-    ingredients: [],
-    totalTime: 0,
-    yield: 0,
-    url: "",
-    label: "",
-    }
-};
 
 function MyRecipesPage() {
     const [modalOpen, setModalOpen] = useState<boolean>(false);

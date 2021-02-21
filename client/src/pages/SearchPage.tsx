@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
 import QueryForm from "../components/QueryForm";
 import { 
-    Alert,
     Button, 
     Col, 
     Modal, 
@@ -12,8 +11,7 @@ import {
     Pagination, 
     PaginationItem, 
     PaginationLink, 
-    Row, 
-    UncontrolledAlert
+    Row,
 } from "reactstrap";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
 import { getSampleRecipes, getAnotherRecipePage, saveRecipe } from "../utils/API";

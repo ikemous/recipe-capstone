@@ -7,12 +7,10 @@ import { updateRecipe, updateRecipeListHits } from "../utils/actions";
 import { Col, Row, Card, CardImg, CardTitle, Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import FluidImage from "../components/FluidImage";
 import { v4 as uuidv4 } from "uuid";
-import { useHistory } from "react-router-dom";
 
 function SavedRecipesPage() {
     const [loading, setLoading] = useState<boolean>(true);
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-    const history = useHistory();
     const recipeList = useSelector(({recipeList}:RootStateOrAny) => recipeList);
     const { recipe } = useSelector(({ recipe }:RootStateOrAny) => recipe)
     const { currentUser } = useAuth();
