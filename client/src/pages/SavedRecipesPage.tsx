@@ -46,8 +46,8 @@ function SavedRecipesPage() {
                         const { label, image, id } = recipe;
                         
                         return (
-                            <Col  key={id} style={{marginRight: 0, marginLeft: 0, padding:25}} xs={12} md={4}>
-                                <Card onClick={() => handleCardClick(recipe)}>
+                            <Col key={id} style={{marginRight: 0, marginLeft: 0, padding:25}} xs={12} md={4}>
+                                <Card onClick={() => handleCardClick(recipe)} style={{background: "#E27D60"}}>
                                     <CardImg top width="100%" src={image} alt={`View Of ${label}`}/>
                                     <CardTitle className="text-center" tag="h5">{ label }</CardTitle>
                                 </Card>
@@ -56,10 +56,10 @@ function SavedRecipesPage() {
                     })
                 }
             </Row>
-            <Modal isOpen={modalOpen} toggle={handleToggle}>
-                <ModalHeader toggle={handleToggle} className="text-center">{recipe.label}</ModalHeader>
+            <Modal style={{background: "#E27D60"}} isOpen={modalOpen} toggle={handleToggle}>
+                <ModalHeader style={{background: "#E27D60"}} toggle={handleToggle} className="text-center">{recipe.label}</ModalHeader>
                 <FluidImage src={recipe.image} alt="" />
-                <ModalBody>
+                <ModalBody style={{background: "#E27D60"}}>
                     <Row>
                         <Col>
                             <h5>Serving Size: {recipe.yield}</h5>
@@ -72,17 +72,14 @@ function SavedRecipesPage() {
                     </Row>
                     <h4>Ingredients: </h4>
                     {
-                        recipe.ingredients.map((ingredient:{text: string}) => {
-                        console.log(ingredient); 
-                        return <h6 key={uuidv4()}>{ingredient.text}</h6>
-                        })
+                       recipe.ingredients.map((ingredient:{text: string}) => <h6 key={uuidv4()}>{ingredient.text}</h6>)
                     }
                 </ModalBody>
-                <ModalFooter className="justify-content-between">
+                <ModalFooter style={{background: "#E27D60"}} className="justify-content-between">
                     <Button onClick={() => handleDelete(recipe.id)} color="danger">
                         Delete
                     </Button>
-                    <Button>
+                    <Button onClick={handleToggle}>
                         Close
                     </Button>
                 </ModalFooter>

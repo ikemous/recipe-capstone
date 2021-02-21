@@ -17,7 +17,8 @@ FluidImage.defaultProps = {
     style: {
         "maxWidth": "100%",
         "maxHeight": "100%",
-        "borderRadius": "10px"
+        "borderRadius": "10px",
+        "background": "none"
     }
 };
 
