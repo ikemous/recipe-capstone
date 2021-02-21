@@ -27,7 +27,7 @@ function LandingPage() {
       <Container fluid={true}>
         <Row className="item-section">
           <Col className="text-center" sm={12} md={4}>
-            <FluidImage src="/images/marie-dehayes-food.jpg" alt="cutting meat by marie dehayes" />
+            <FluidImage src="./images/marie-dehayes-food.jpg" alt="cutting meat by marie dehayes" />
           </Col>
           <Col sm={12} md={8}>
             <Row>
@@ -50,12 +50,12 @@ function LandingPage() {
             </p>
           </Col>
           <Col className="text-center" xs={{ size: "auto", order: 1}} sm={{ size: "4", order: 2}}>
-            <FluidImage src="/images/henar-langa-food.jpg" alt="cutting meat by henar langa"/>
+            <FluidImage src="./images/henar-langa-food.jpg" alt="cutting meat by henar langa"/>
           </Col>
         </Row>
         <Row className="item-section">
           <Col className="text-center" sm={12} md={4}>
-            <FluidImage src="/images/mindaugas-petrutis-food.jpg" alt="cutting meat by mindaugas petrutis" />
+            <FluidImage src="./images/mindaugas-petrutis-food.jpg" alt="cutting meat by mindaugas petrutis" />
           </Col>
           <Col  sm={12} md={8}>
             <h2 className="text-center">Save Your Own Recipes!</h2>
