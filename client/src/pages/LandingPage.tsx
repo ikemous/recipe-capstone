@@ -34,7 +34,7 @@ function LandingPage() {
               <h2 className="col text-center">Search For Recipes!</h2>
             </Row>
             <Row>
-              <p className="col text-center">
+              <p className="col text-center landing-text">
                 You can either search from the home page or click the search page! Think of an ingredient or 
                 food choice and discover some delicious meals!
               </p>
@@ -44,7 +44,7 @@ function LandingPage() {
         <Row className="item-section">
           <Col xs={{ size: "auto", order: 2}}  sm={{ size: "8", order: 1}}>
             <h2 className="text-center">Save Favourites!</h2>
-            <p className="col text-center">
+            <p className="col text-center landing-text">
               Found something you like but not hungry yet? Click the heart and save it for later!
               You'll need to be logged in. <Link to="/login">Login Here</Link>
             </p>
@@ -59,7 +59,7 @@ function LandingPage() {
           </Col>
           <Col  sm={12} md={8}>
             <h2 className="text-center">Save Your Own Recipes!</h2>
-            <p className="col text-center">
+            <p className="col text-center landing-text">
               Know of some recipes but dont want to write them on paper? Create your recipe and save it for later!
               You'll need to be logged in. <Link to="/login">Login Here</Link>
             </p>
