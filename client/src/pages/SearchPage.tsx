@@ -106,11 +106,7 @@ function SearchPage() {
                         </Row>
                             <h4>Ingredients:</h4>
                             {
-                                recipe.recipe.ingredients.map((ingredient:{text:string}) => {
-                                    return (
-                                        <h6 key={uuidv4()}>{ingredient.text}</h6>
-                                    );
-                                })
+                                recipe.recipe.ingredients.map((ingredient:{text:string}) => <h6 key={uuidv4()}>{ingredient.text}</h6>)
                             }
                     </ModalBody>
                     <ModalFooter className="justify-content-between">

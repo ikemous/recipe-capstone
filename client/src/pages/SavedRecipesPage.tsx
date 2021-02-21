@@ -18,9 +18,7 @@ function SavedRecipesPage() {
 
     useEffect(() => {
         getUserRecipes(currentUser.uid)
-        .then(({data}) => {
-            dispatch(updateRecipeListHits(data));
-        })
+        .then(({data}) => dispatch(updateRecipeListHits(data)))
         .then(() => setLoading(false))
         .catch(error => console.log(error));
     });
