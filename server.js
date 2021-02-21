@@ -17,7 +17,7 @@ server.use(require("./routes/recipe-api-routes.js"));
 // Send every request to the React app
 // Define any API routes before this runs
 server.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
   
 
