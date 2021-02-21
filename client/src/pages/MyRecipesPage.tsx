@@ -237,15 +237,16 @@ function MyRecipesPage() {
                             </FormGroup>
                         </Form>
                         {
-                            recipe.ingredients.map((ingredient: {text: string}, index:number) => {
-                                if(ingredient.text === "") return;
+                            recipe.ingredients.map(function (ingredient: { text: string; }, index: number) {
+                                if (ingredient.text === "")
+                                    return <></>;
                                 return (
-                                    <Row style={{paddingBottom: 15}} key={index}>
+                                    <Row style={{ paddingBottom: 15 }} key={index}>
                                         <Col xs={10}>
                                             <h6>{ingredient.text}</h6>
                                         </Col>
                                         <Col xs={2}>
-                                            <Button style={{position: "absolute", left: 0}} onClick={() => handleDeleteIngredient(index)}><FaTrash /></Button>
+                                            <Button style={{ position: "absolute", left: 0 }} onClick={() => handleDeleteIngredient(index)}><FaTrash /></Button>
                                         </Col>
                                     </Row>
                                 );
