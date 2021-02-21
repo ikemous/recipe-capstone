@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 import allReducers from "./utils/reducers";
 import { Provider } from "react-redux";
 import { createStore } from "redux"; 
 import { composeWithDevTools } from "redux-devtools-extension";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
 
 const store = createStore(allReducers, composeWithDevTools());
 
@@ -19,4 +19,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
