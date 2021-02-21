@@ -5,8 +5,11 @@ const PORT = process.env.PORT || 3001;
 const server = express();
 const db = require("./models");
 
+console.log(process.env.Node_ENV);
+
 if(process.env.Node_ENV === "production") {
     server.use(express.static("client/build"));
+    server.use(express.static("client/dist"));
 }
 
 server.use(express.urlencoded({ extended: true }));
@@ -17,6 +20,7 @@ server.use(require("./routes/recipe-api-routes.js"));
 // Send every request to the React app
 // Define any API routes before this runs
 server.get("*", (req, res) => {
+
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
   
