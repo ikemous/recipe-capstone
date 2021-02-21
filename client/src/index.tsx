@@ -10,9 +10,11 @@ import App from './App';
 const store = createStore(allReducers, composeWithDevTools());
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  // <Provider store={store}>
+  //   <App />
+  // </Provider>
+  <h1>Test</h1>
+  ,
   document.getElementById('root')
 );
 
