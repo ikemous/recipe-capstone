@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import PageContainer from "../components/PageContainer";
 import ForgotPasswordForm from "../components/ForgotPasswordForm";
 import { Row, Col } from "reactstrap";
@@ -6,6 +7,10 @@ import { Row, Col } from "reactstrap";
 function ForgotPasswordPage() {
     return (
         <PageContainer>
+            <Helmet>
+                <title>uCook! - Oopsie!</title>
+                <meta name="description" content="uCook! Forgot Password Page"/>
+            </Helmet>
             <Row 
                 style={{
                     alignItems: "center", 
