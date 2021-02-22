@@ -25,6 +25,12 @@ function LandingPage() {
         <QueryForm />
       </Row>
       <Container fluid={true}>
+        <Row style={{paddingTop: "1vh"}}>
+          <Col className="text-center" xs={12}>
+            <h2>uCook! Find Or Create Recipes</h2>
+            <p style={{fontSize: "1.5rem"}}>See The information below or use the serach bar to start finding!</p>
+          </Col>
+        </Row>
         <Row className="item-section">
           <Col className="text-center" sm={12} md={4}>
             <FluidImage src="./images/marie-dehayes-food.jpg" alt="cutting meat by marie dehayes" />
@@ -35,7 +41,7 @@ function LandingPage() {
             </Row>
             <Row>
               <p className="col text-center landing-text">
-                You can either search from the home page or click the search page! Think of an ingredient or 
+                Using the Edmam API you can either search from the home page or click the search page! Think of an ingredient or 
                 food choice and discover some delicious meals!
               </p>
             </Row>

@@ -1,5 +1,5 @@
 html, body, .dropdown-menu {
-    background-color: #41B3A3!important;
+    background-color: #5cc8ba!important;
 }
 
 .dropdown-menu{ 
@@ -20,4 +20,16 @@ html, body, .dropdown-menu {
 
 .modal-footer {
     border-top: 0!important;
+}
+
+.page-link {
+    background: #E27D60!important;
+}
+
+button.page-link {
+    border: none!important;
+}
+
+li.page-item{
+    padding: 10px
 }
