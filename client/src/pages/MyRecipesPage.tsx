@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
+import { Helmet } from "react-helmet"
 import {
   createRecipe,
   getUserCreatedRecipes,
@@ -166,6 +167,10 @@ function MyRecipesPage() {
 
   return (
     <>
+      <Helmet>
+        <title>uCook! - Login</title>
+        <meta name="description" content="uCook! Login Page"/>
+      </Helmet>
       <TotallyCewlNavBar />
       <Container style={{ minHeight: "93vh" }} fluid>
         <Row style={{ paddingBottom: "50px" }}>
