@@ -1,10 +1,15 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Row, Col } from "reactstrap";
 import PageContainer from "../components/PageContainer";
 
 function AboutPage() {
     return (
         <PageContainer>
+            <Helmet>
+                <title>uCook! - About</title>
+                <meta name="description" content="uCook! About Page"/>
+            </Helmet>
             <h2 style={{paddingTop: "10vh"}} className="text-center">About The Creator</h2>
             <Row 
                 style={{marginRight: "auto", justifyContent: "center"}}
