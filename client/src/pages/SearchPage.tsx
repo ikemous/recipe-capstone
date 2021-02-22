@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import TotallyCewlNavBar from "../components/TotallyCewlNavBar";
 import QueryForm from "../components/QueryForm";
 import { 
@@ -71,6 +72,10 @@ function SearchPage() {
 
     return (
         <>  
+            <Helmet>
+                <title>uCook! - Saerch</title>
+                <meta name="description" content="uCook! Search Page"/>
+            </Helmet>
             <TotallyCewlNavBar />
             <Row style={{paddingTop:10, marginRight:0, marginLeft:0}}></Row>
             <QueryForm />
