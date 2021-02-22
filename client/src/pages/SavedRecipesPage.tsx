@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import PageContainer from "../components/PageContainer";
 import { deleteRecipe, getUserRecipes } from "../utils/API";
 import { useDispatch, RootStateOrAny, useSelector } from "react-redux";
@@ -39,6 +40,10 @@ function SavedRecipesPage() {
 
     return (
         <PageContainer>
+            <Helmet>
+                <title>uCook! - Saved</title>
+                <meta name="description" content="uCook! Saved Recipes Page"/>
+            </Helmet>
             <h2 className="text-center">Saved Recipes</h2>
             <Row>
                 {
