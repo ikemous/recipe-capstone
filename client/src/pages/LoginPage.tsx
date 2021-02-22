@@ -1,4 +1,5 @@
 import  React from "react";
+import { Helmet } from "react-helmet";
 import { Row, Col } from "reactstrap";
 import AightUserAuthenticationForm from "../components/AightUserAuthenticationForm";
 import PageContainer from "../components/PageContainer";
@@ -6,6 +7,10 @@ import PageContainer from "../components/PageContainer";
 function LoginPage() {
     return (
         <PageContainer>
+            <Helmet>
+                <title>uCook! - Login</title>
+                <meta name="description" content="uCook! Login Page"/>
+            </Helmet>
             <Row 
                 style={{
                     alignItems: "center", 

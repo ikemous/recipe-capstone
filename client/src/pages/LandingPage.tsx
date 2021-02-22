@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import QueryForm from "../components/QueryForm";
 import FluidImage from "../components/FluidImage";
 import { Col, Container, Row, } from "reactstrap";
@@ -9,6 +10,10 @@ import "./landingPage.css";
 function LandingPage() {
   return (
     <>
+      <Helmet>
+        <title>uCook! - Home</title>
+        <meta name="description" content="uCook! Home Page"/>
+      </Helmet>
       <TotallyCewlNavBar />
       <Row
         style={{
