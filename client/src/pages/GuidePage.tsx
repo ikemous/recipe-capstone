@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Col, ListGroup, ListGroupItem, Row } from "reactstrap";
 import PageContainer from "../components/PageContainer";
 import "./guidePage.css";
@@ -6,6 +7,10 @@ import "./guidePage.css";
 function GuidePage() {
     return (
         <PageContainer>
+            <Helmet>
+                <title>uCook! - Guid Me</title>
+                <meta name="description" content="uCook! Guide Page"/>
+            </Helmet>
             <Row style={{paddingTop: "2vh"}} className="text-center">
                 <Col className="guide-link" xs={12} md={{offset: 2, size: 4}}>
                     <a href="#search-recipe">Search Recipe</a>
