@@ -1,30 +1,38 @@
 import React from "react";
 import { Col, ListGroup, ListGroupItem, Row } from "reactstrap";
 import PageContainer from "../components/PageContainer";
+import "./guidePage.css";
 
 function GuidePage() {
     return (
         <PageContainer>
-            <Row className="text-center">
-                <Col xs={12} md={4}>
+            <Row style={{paddingTop: "2vh"}} className="text-center">
+                <Col className="guide-link" xs={12} md={{offset: 2, size: 4}}>
                     <a href="#search-recipe">Search Recipe</a>
                 </Col>
-                <Col xs={12} md={4}>
+                <Col className="guide-link" xs={12} md={4}>
                     <a href="#create-account">Create Account</a>
                 </Col>
-                <Col xs={12} md={4}>
+            </Row>
+            <Row style={{paddingTop: "2vh"}} className="text-center">
+                <Col className="guide-link" xs={12} md={{offset: 2, size: 4}}>
                     <a href="#login-account">Login Account</a>
                 </Col>
-                <Col xs={12} md={4}>
+                <Col className="guide-link" xs={12} md={4}>
                     <a href="#forgot-password">Forgot Password</a>
                 </Col>
-                <Col xs={12} md={4}>
+            </Row>
+            
+            <Row style={{paddingTop: "2vh"}} className="text-center">
+                <Col className="guide-link" xs={12} md={{offset: 2, size: 4}}>
                     <a href="#save-recipe">Save Recipe</a>
                 </Col>
-                <Col xs={12} md={4}>
+                <Col className="guide-link" xs={12} md={4}>
                     <a href="#create-recipe">Create Recipe</a>
                 </Col>
-                <Col xs={12} md={4}>
+            </Row>
+            <Row style={{paddingTop: "2vh"}} className="text-center">
+                <Col className="guide-link" xs={12} md={{offset: 2, size: 4}}>
                     <a href="#update-recipe">Update Recipe</a>
                 </Col>
             </Row>
@@ -127,7 +135,7 @@ function GuidePage() {
                     </ListGroup>
                 </Col>
             </Row>
-            <Row style={{paddingTop: "3vh"}}  id="update-recipe">
+            <Row style={{paddingTop: "3vh", paddingBottom: "5vh"}}  id="update-recipe">
                 <Col xs={12}>
                     <h2 className="text-center">Update Recipe</h2>
                 </Col>
